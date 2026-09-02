@@ -59,6 +59,8 @@ html {
     --font-price: "Fraunces", "Playfair Display", Georgia, serif;
 }
 
+/* ========== Kickers ========== */
+
 
 /* ======= Header bar and logo ======= */
 
@@ -682,11 +684,6 @@ body.nav-open {
     transform: translateY(-3px);
 }
 
-
-/* Breakfast section */
-
-
-
 @media (hover: hover) {
     .room-foot .room-btn:hover {
         background-color: var(--teal);
@@ -698,6 +695,50 @@ body.nav-open {
 
 .room-foot .room-btn:active {
     transform: scale(.97);
+}
+
+/* Breakfast section */
+
+.dining-section {
+    background-color: var(--teal-deep);
+}
+
+.zigzag-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    color: var(--cream);
+}
+
+.dining-section-text .dining-kicker {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--deep-green);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+.dining-section-text h2 {
+    letter-spacing: 0.01em;
+    font-family: var(--font-heading);
+    color: #f4f1e8;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-top: 1rem;
+    max-width: 35rem;
+}
+
+.dining-section-text p {
+    font-family: var(--font-body);
+    color: #f4f1e8;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.dining-card img {
+    width: 100%;
 }
 
 
