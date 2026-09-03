@@ -1,14 +1,18 @@
+/* =========================================================
+   The Viang Tak Riverside Hotel
+   ========================================================= */
+
+/* ========== RESET ========== */
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-
 /* * {
     outline: 1px solid red !important;
 } */
-
 
 html,
 body {
@@ -18,7 +22,36 @@ body {
 
 html {
     scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
 }
+
+
+/* ========== TOKENS ========== */
+
+:root {
+    --cream: #faf7f2;
+    --sand: #f2ecdf;
+    --white: #ffffff;
+    --ink: #1c2b2d;
+    --ink-soft: #46595c;
+    --teal: #0e4f55;
+    --teal-deep: #123a3e;
+
+    /* greens darkened to pass WCAG AA:
+       --green   4.73:1 with white text
+       --deep-green  5.64:1 on cream, 6.03:1 with white text */
+    --green: #5f7d20;
+    --deep-green: #446e0c;
+    --sage: #b7c77a;
+    --gold: #c9a24b;
+
+    --font-heading: "Playfair Display", Georgia, serif;
+    --font-body: "Inter", sans-serif;
+    --font-price: "Fraunces", "Playfair Display", Georgia, serif;
+}
+
+
+/* ========== SCROLLBAR ========== */
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -43,26 +76,75 @@ html {
     background: var(--gold);
 }
 
-:root {
-    --cream: #faf7f2;
-    --white: #ffffff;
-    --ink: #1c2b2d;
-    --ink-soft: #46595c;
-    --teal: #0e4f55;
-    --teal-deep: #123a3e;
-    --green: #7e9d36;
-    --deep-green: #59900e;
-    --gold: #c9a24b;
 
-    --font-heading: "Playfair Display", Georgia, serif;
-    --font-body: "Inter", sans-serif;
-    --font-price: "Fraunces", "Playfair Display", Georgia, serif;
+/* ========== GLOBAL FOCUS ========== */
+
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
 }
 
-/* ========== Kickers ========== */
+
+/* ========== SKIP LINK ========== */
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    transform: translateY(-150%);
+
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0 0 10px 0;
+
+    transition: transform .2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
 
 
-/* ======= Header bar and logo ======= */
+/* ========== KICKERS ==========
+   All four use a two-class selector so they outrank the
+   section-level "p" rules (e.g. .dining-text p), which would
+   otherwise override font-weight and color.
+   .hero-kicker stays separate — it is gold, lighter and larger. */
+
+.dining-text .kicker,
+.welcome-section .welcome-kicker,
+.room-section-text .room-kicker,
+.zag-body .zag-kicker {
+    margin: 0;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+}
+
+.welcome-section .welcome-kicker,
+.room-section-text .room-kicker {
+    color: var(--deep-green);
+}
+
+.dining-text .kicker,
+.zag-body .zag-kicker {
+    color: var(--sage);
+}
+
+.zag-body .zag-kicker {
+    font-size: 0.75rem;
+}
+
+
+/* ======= HEADER BAR AND LOGO ======= */
 
 .hotel-header {
     position: fixed;
@@ -144,7 +226,7 @@ html {
 }
 
 
-/* ======= Navigation bar ======= */
+/* ======= NAVIGATION BAR ======= */
 
 /* Language toggle */
 
@@ -165,10 +247,6 @@ html {
     border: 1px solid white;
     border-radius: 10px;
     transition: color .3s ease, border-color .3s ease, transform 0.3s ease, background-color 0.3s ease;
-}
-
-.lang-toggle:focus-visible {
-    transform: translateY(-3px);
 }
 
 @media (hover: hover) {
@@ -207,10 +285,6 @@ html {
     transition: transform 0.3s ease;
 }
 
-.nav-toggle:focus-visible {
-    transform: translateY(-3px);
-}
-
 @media (hover: hover) {
     .nav-toggle:hover {
         transform: translateY(-3px);
@@ -235,7 +309,9 @@ html {
     background-color: black;
 }
 
-/* The nav links container */
+/* The nav links container.
+   visibility:hidden keeps the closed off-screen menu out of the
+   tab order — transform alone leaves the links focusable. */
 .primary-nav {
     position: fixed;
     top: 0;
@@ -251,8 +327,9 @@ html {
 
     background-color: rgba(18, 22, 14, 0.97);
 
+    visibility: hidden;
     transform: translateX(100%);
-    transition: transform .35s ease;
+    transition: transform .35s ease, visibility .35s ease;
 }
 
 .primary-nav ul {
@@ -277,10 +354,6 @@ html {
     transition: transform 0.3s ease;
 }
 
-.primary-nav a:focus-visible {
-    transform: translateY(-3px);
-}
-
 @media (hover: hover) {
     .primary-nav a:hover {
         transform: translateY(-3px);
@@ -301,6 +374,12 @@ html {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+@media (hover: hover) {
+    .primary-nav .book-btn:hover {
+        background-color: var(--deep-green);
+    }
+}
+
 .primary-nav .book-btn:active {
     transform: scale(.97);
 }
@@ -312,6 +391,7 @@ body.nav-open {
 }
 
 .nav-open .primary-nav {
+    visibility: visible;
     transform: translateX(0%);
 }
 
@@ -410,11 +490,6 @@ body.nav-open {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.hero-text .explore-btn:focus-visible {
-    transform: translateY(-3px);
-    background-color: var(--deep-green);
-}
-
 @media (hover: hover) {
     .hero-text .explore-btn:hover {
         transform: translateY(-3px);
@@ -427,16 +502,19 @@ body.nav-open {
 }
 
 
-/* ======= WELCOME SECTION ======= */
-
-.welcome-section {
-    background-color: var(--cream);
-}
+/* ======= LAYOUT CONTAINER ======= */
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 1.5rem;
+}
+
+
+/* ======= WELCOME SECTION ======= */
+
+.welcome-section {
+    background-color: var(--cream);
 }
 
 .welcome-img-container {
@@ -462,15 +540,6 @@ body.nav-open {
     border: 4px solid whitesmoke;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.171);
     border-radius: 15px;
-}
-
-.welcome-section .welcome-kicker {
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--deep-green);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
 }
 
 .welcome-section h2 {
@@ -517,20 +586,10 @@ body.nav-open {
 }
 
 
-/* ======= Room cards section ======= */
+/* ======= ROOM CARDS SECTION ======= */
 
 .room-card-section {
-    background-color: #f2ecdf;
-}
-
-.room-section-text .room-kicker {
-    margin: 0;
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--deep-green);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
+    background-color: var(--sand);
 }
 
 .room-section-text h2 {
@@ -610,6 +669,8 @@ body.nav-open {
     line-height: 1.5;
 }
 
+/* Spec chips — static labels, so no hover lift:
+   hover feedback on something unclickable reads as a broken link. */
 .room-body ul {
     color: var(--ink);
     font-family: var(--font-body);
@@ -628,13 +689,6 @@ body.nav-open {
     padding: .7rem .9rem;
     font-size: .85rem;
     letter-spacing: .5px;
-    transition: transform 0.3s ease;
-}
-
-@media (hover: hover) {
-    .room-body li:hover {
-        transform: translateY(-2px);
-    }
 }
 
 .room-foot {
@@ -674,20 +728,13 @@ body.nav-open {
     letter-spacing: 1px;
     padding: .9rem 1.5rem;
     border-radius: 50px;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-
-.room-foot .room-btn:focus-visible {
-    background-color: var(--teal);
-    border: 1px solid var(--teal);
-    color: white;
-    transform: translateY(-3px);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 @media (hover: hover) {
     .room-foot .room-btn:hover {
         background-color: var(--teal);
-        border: 1px solid var(--teal);
+        border-color: var(--teal);
         color: white;
         transform: translateY(-3px);
     }
@@ -697,24 +744,20 @@ body.nav-open {
     transform: scale(.97);
 }
 
-/* Breakfast section */
+
+/* ======= BREAKFAST SECTION ======= */
 
 .dining-section {
     background-color: var(--teal-deep);
-    color: #F9F9F6;
+    color: #f9f9f6;
+    /* no padding here — .container already supplies it */
 }
 
-.kicker {
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--deep-green);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-}
+/* --- header --- */
 
 .dining-text h2 {
     font-family: var(--font-heading);
+    color: var(--white);
     font-weight: 500;
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin-top: 1rem;
@@ -724,32 +767,127 @@ body.nav-open {
 .dining-text p {
     font-family: var(--font-body);
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
+.dining-text .breakfast-paragraph {
+    max-width: 42rem;
+    margin-top: 1rem;
+}
 
-.breakfast-time {
-    display: block;
+/* two-class selector so font-weight survives ".dining-text p" */
+.dining-text .breakfast-time {
+    display: inline-block;
     margin-top: 1.4rem;
     padding-top: 0.85rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
 
-    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #b7c77a;
+    color: var(--sage);
 }
 
+.dining-text .breakfast-time span {
+    color: var(--white);
+}
 
-.breakfast-time span {}
+/* --- hero image --- */
+
+.dining-hero-fig {
+    margin: 2.5rem 0 0;
+}
 
 .dining-hero {
     width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
-/* ====== RESPONSIVE ====== */
+/* --- feature row --- */
+
+.zag {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.zag-media img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.zag-body h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    color: var(--white);
+    margin: 0.6rem 0 0.8rem;
+}
+
+.zag-body p {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--cream);
+    margin: 0;
+    max-width: 34rem;
+}
+
+/* --- the trio --- */
+
+.buffet-intro {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cream);
+}
+
+.buffet-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.buffet-item img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.buffet-item h4 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin: 1rem 0 0.4rem;
+}
+
+.buffet-item p {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--cream);
+    margin: 0;
+}
+
+
+/* ====== RESPONSIVE — 768px ====== */
 
 @media (min-width: 768px) {
 
@@ -786,6 +924,7 @@ body.nav-open {
         max-width: none;
         height: auto;
         background-color: transparent;
+        visibility: visible;
         transform: none;
     }
 
@@ -794,12 +933,14 @@ body.nav-open {
         gap: 1.5rem;
     }
 
+    /* font-size is not transitioned — animating it forces a
+       layout pass on every scroll-state change */
     .primary-nav a {
         letter-spacing: 0.1em;
         font-size: 0.7rem;
         text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 
-        transition: color .3s ease, font-size .3s ease, transform 0.3s ease;
+        transition: color .3s ease, transform 0.3s ease;
     }
 
     .scrolled .primary-nav a {
@@ -833,7 +974,7 @@ body.nav-open {
         margin: 0;
     }
 
-    /* Welcome section */
+    /* welcome */
     .sub-welcome-container {
         display: flex;
         align-items: center;
@@ -852,9 +993,38 @@ body.nav-open {
         left: -1.2rem;
     }
 
+    /* breakfast */
+    .dining-hero {
+        aspect-ratio: 21 / 9;
+    }
+
+    .zag {
+        grid-template-columns: 1.15fr 1fr;
+        gap: 3.5rem;
+        margin-top: 5rem;
+    }
+
+    /* add class "reverse" to any .zag row to flip it */
+    .zag.reverse .zag-media {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .zag.reverse .zag-body {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .buffet-intro {
+        margin-top: 5rem;
+    }
 }
 
+
+/* ====== RESPONSIVE — 1024px ====== */
+
 @media (min-width: 1024px) {
+
     .hero-text {
         left: 15vw;
         max-width: 750px;
@@ -870,5 +1040,20 @@ body.nav-open {
 
     .hotel-header {
         padding: 1rem 7rem;
+    }
+}
+
+
+/* ====== REDUCED MOTION ====== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
