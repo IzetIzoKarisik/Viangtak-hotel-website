@@ -2,17 +2,11 @@
    The Viang Tak Riverside Hotel
    ========================================================= */
 
-/* ========== RESET ========== */
-
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-
-/* * {
-    outline: 1px solid red !important;
-} */
 
 html,
 body {
@@ -111,11 +105,7 @@ html {
 }
 
 
-/* ========== KICKERS ==========
-   All four use a two-class selector so they outrank the
-   section-level "p" rules (e.g. .dining-text p), which would
-   otherwise override font-weight and color.
-   .hero-kicker stays separate — it is gold, lighter and larger. */
+/* ========== KICKERS ========== */
 
 .dining-text .kicker,
 .welcome-section .welcome-kicker,
@@ -309,9 +299,7 @@ html {
     background-color: black;
 }
 
-/* The nav links container.
-   visibility:hidden keeps the closed off-screen menu out of the
-   tab order — transform alone leaves the links focusable. */
+
 .primary-nav {
     position: fixed;
     top: 0;
@@ -669,8 +657,6 @@ body.nav-open {
     line-height: 1.5;
 }
 
-/* Spec chips — static labels, so no hover lift:
-   hover feedback on something unclickable reads as a broken link. */
 .room-body ul {
     color: var(--ink);
     font-family: var(--font-body);
