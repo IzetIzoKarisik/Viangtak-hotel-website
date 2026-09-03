@@ -701,16 +701,10 @@ body.nav-open {
 
 .dining-section {
     background-color: var(--teal-deep);
+    color: #F9F9F6;
 }
 
-.zigzag-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    color: var(--cream);
-}
-
-.dining-section-text .dining-kicker {
+.kicker {
     font-family: var(--font-body);
     text-transform: uppercase;
     font-weight: bold;
@@ -719,28 +713,41 @@ body.nav-open {
     letter-spacing: 3px;
 }
 
-.dining-section-text h2 {
-    letter-spacing: 0.01em;
+.dining-text h2 {
     font-family: var(--font-heading);
-    color: #f4f1e8;
     font-weight: 500;
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     margin-top: 1rem;
-    max-width: 35rem;
+    margin-bottom: 0;
 }
 
-.dining-section-text p {
+.dining-text p {
     font-family: var(--font-body);
-    color: #f4f1e8;
     font-weight: 300;
     line-height: 1.5;
-    margin-bottom: 2rem;
 }
 
-.dining-card img {
+
+.breakfast-time {
+    display: block;
+    margin-top: 1.4rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b7c77a;
+}
+
+
+.breakfast-time span {}
+
+.dining-hero {
     width: 100%;
 }
-
 
 /* ====== RESPONSIVE ====== */
 
