@@ -108,7 +108,7 @@ html {
 .welcome-section .welcome-kicker,
 .room-section-text .room-kicker,
 .zag-body .zag-kicker,
-.wedding-kicker {
+.event-kicker {
     margin: 0;
     font-family: var(--font-body);
     text-transform: uppercase;
@@ -119,7 +119,7 @@ html {
 
 .welcome-section .welcome-kicker,
 .room-section-text .room-kicker,
-.wedding-kicker {
+.event-kicker {
     color: var(--deep-green);
 }
 
