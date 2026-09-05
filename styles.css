@@ -31,9 +31,6 @@ html {
     --teal: #0e4f55;
     --teal-deep: #123a3e;
 
-    /* greens darkened to pass WCAG AA:
-       --green   4.73:1 with white text
-       --deep-green  5.64:1 on cream, 6.03:1 with white text */
     --green: #5f7d20;
     --deep-green: #446e0c;
     --sage: #b7c77a;
@@ -872,6 +869,44 @@ body.nav-open {
     margin: 0;
 }
 
+/* ======= weddings and banquets ======= */
+
+.wedding-straight {
+    grid-area: img1;
+}
+
+.wedding-side {
+    grid-area: img2;
+}
+
+.seminar {
+    grid-area: img3;
+}
+
+.wedding-white {
+    grid-area: img4;
+}
+
+.wedding-close {
+    grid-area: img5;
+}
+
+.wedding-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "img1 img1"
+        "img1 img1"
+        "img2 img3"
+        "img4 img5";
+}
+
+.wedding-grid img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 /* ====== RESPONSIVE — 768px ====== */
 
@@ -1003,6 +1038,13 @@ body.nav-open {
 
     .buffet-intro {
         margin-top: 5rem;
+    }
+
+    .wedding-grid {
+        display: grid;
+        grid-template-areas:
+            "img1 img1 img2 img3"
+            "img1 img1 img4 img5";
     }
 }
 
