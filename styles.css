@@ -107,7 +107,8 @@ html {
 .dining-text .kicker,
 .welcome-section .welcome-kicker,
 .room-section-text .room-kicker,
-.zag-body .zag-kicker {
+.zag-body .zag-kicker,
+.wedding-kicker {
     margin: 0;
     font-family: var(--font-body);
     text-transform: uppercase;
@@ -117,7 +118,8 @@ html {
 }
 
 .welcome-section .welcome-kicker,
-.room-section-text .room-kicker {
+.room-section-text .room-kicker,
+.wedding-kicker {
     color: var(--deep-green);
 }
 
@@ -733,7 +735,6 @@ body.nav-open {
 .dining-section {
     background-color: var(--teal-deep);
     color: #f9f9f6;
-    /* no padding here — .container already supplies it */
 }
 
 /* --- header --- */
@@ -750,7 +751,7 @@ body.nav-open {
 .dining-text p {
     font-family: var(--font-body);
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .dining-text .breakfast-paragraph {
@@ -871,11 +872,32 @@ body.nav-open {
 
 /* ======= weddings and banquets ======= */
 
-.wedding-straight {
+.event-section {
+    background-color: var(--sand)
+}
+
+.event-text h2 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-top: 1rem;
+    max-width: 35rem;
+}
+
+.event-text .event-intro {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+
+.event-straight {
     grid-area: img1;
 }
 
-.wedding-side {
+.event-side {
     grid-area: img2;
 }
 
@@ -883,15 +905,15 @@ body.nav-open {
     grid-area: img3;
 }
 
-.wedding-white {
+.event-white {
     grid-area: img4;
 }
 
-.wedding-close {
+.event-close {
     grid-area: img5;
 }
 
-.wedding-grid {
+.event-grid {
     display: grid;
     gap: 1rem;
     grid-template-areas:
@@ -901,11 +923,136 @@ body.nav-open {
         "img4 img5";
 }
 
-.wedding-grid img {
+.event-grid img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 20px;
+}
+
+
+.event-subhead {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+    margin: 3.5rem 0 1.5rem;
+}
+
+.venue-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.venue {
+    border-top: 1px solid rgba(28, 43, 45, 0.18);
+    padding-top: 1rem;
+}
+
+.venue h4 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+}
+
+.venue p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.included-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.85rem 2rem;
+}
+
+.included-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.included-list li::before {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    background-color: var(--deep-green);
+    -webkit-mask: url('assets/check.svg') no-repeat center / contain;
+    mask: url('assets/check.svg') no-repeat center / contain;
+}
+
+.event-cta {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28, 43, 45, 0.18);
+}
+
+.event-cta p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+    max-width: 34rem;
+}
+
+.event-cta {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28, 43, 45, 0.18);
+}
+
+.event-cta p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    max-width: 34rem;
+}
+
+.event-btn {
+    display: inline-block;
+    background-color: var(--green);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+    padding: 1.1rem 1.9rem;
+    border-radius: 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (hover: hover) {
+    .event-btn:hover {
+        transform: translateY(-3px);
+        background-color: var(--deep-green);
+    }
+}
+
+.event-btn:active {
+    transform: scale(.97);
 }
 
 /* ====== RESPONSIVE — 768px ====== */
@@ -954,8 +1101,6 @@ body.nav-open {
         gap: 1.5rem;
     }
 
-    /* font-size is not transitioned — animating it forces a
-       layout pass on every scroll-state change */
     .primary-nav a {
         letter-spacing: 0.1em;
         font-size: 0.7rem;
