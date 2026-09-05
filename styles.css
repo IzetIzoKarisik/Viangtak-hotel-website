@@ -1185,7 +1185,7 @@ body.nav-open {
         margin-top: 5rem;
     }
 
-    .wedding-grid {
+    .event-grid {
         display: grid;
         grid-template-areas:
             "img1 img1 img2 img3"
