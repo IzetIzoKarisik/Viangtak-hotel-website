@@ -160,6 +160,60 @@ h2 {
     color: var(--white);
 }
 
+/* ======= For booking html styling======= */
+
+.booking-page {
+    background-color: var(--sand);
+}
+
+.booking-page .hotel-header {
+    background-color: var(--cream);
+    position: static;
+}
+
+.booking-page .brand-name {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.booking-page .sub-brand-name {
+    color: var(--deep-green);
+    font-weight: 300;
+    font-size: .7rem;
+}
+
+.booking-page .logo {
+    border-bottom: none;
+}
+
+.booking-page .hotel-header .back-btn {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    align-items: center;
+    display: inline-flex;
+    color: var(--deep-green);
+    gap: .7rem;
+    cursor: pointer;
+    letter-spacing: .15rem;
+    text-decoration: none;
+}
+
+/* anchor tag and card kicker */
+.booking-page .booking-kicker {
+    color: var(--gold);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.booking-page .change-btn {
+    font-family: var(--font-body);
+    color: rgb(219, 29, 29);
+    font-size: 1.1rem;
+    text-underline-offset: 5px;
+}
 
 /* ======= HEADER BAR AND LOGO ======= */
 
