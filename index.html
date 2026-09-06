@@ -18,7 +18,7 @@
     <title>The ViangTak Riverside Hotel</title>
 </head>
 
-<body>
+<body id="top">
 
     <a class="skip-link" href="#main">Skip to content</a>
 
@@ -30,7 +30,8 @@
 
         <div class="lang-sand">
             <a class="lang-toggle before" href="#">ไทย</a>
-            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                aria-controls="primary-nav">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -45,7 +46,7 @@
                 <li><a href="#events">Events</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a class="lang-toggle after" href="#">ไทย</a></li>
-                <li><a class="book-btn" href="#book">Book now</a></li>
+                <li><a class="book-btn" href="#contact">Book now</a></li>
             </ul>
         </nav>
     </header>
@@ -55,7 +56,7 @@
     <main id="main">
 
         <section class="hero-section">
-            <img class="hero-img" src="./assets/images/hero.webp"
+            <img class="hero-img" src="./assets/images/hero.webp" fetchpriority="high"
                 alt="Aerial view of The Viang Tak Riverside Hotel on the Ping River at sunset">
             <div class="hero-overlay"></div>
             <div class="hero-text">
@@ -115,7 +116,7 @@
 
                 <div class="room-section-text">
                     <p class="room-kicker">stay with us</p>
-                    <h2>Rooms&amp;Suites</h2>
+                    <h2>Rooms &amp; Suites</h2>
                     <p>Every room comes with air conditioning, free Wi-Fi and buffet breakfast for two.</p>
                 </div>
 
@@ -123,7 +124,7 @@
                     <article class="room-card">
 
                         <div class="room-photo">
-                            <img src="./assets/images/hotel/rooms/twin-beds-elephant-view.webp"
+                            <img loading="lazy" src="./assets/images/hotel/rooms/twin-beds-elephant-view.webp"
                                 alt="A deluxe twin bed room with riverview" />
                         </div>
                         <div class="room-body">
@@ -147,7 +148,7 @@
                     <article class="room-card">
 
                         <div class="room-photo">
-                            <img src="./assets/images/hotel/rooms/king-bed-corner-view.webp"
+                            <img loading="lazy" src="./assets/images/hotel/rooms/king-bed-corner-view.webp"
                                 alt="A corner suite room with 180 degrees wide riverview" />
                         </div>
                         <div class="room-body">
@@ -171,7 +172,7 @@
                     <article class="room-card">
 
                         <div class="room-photo">
-                            <img src="./assets/images/hotel/rooms/family-room.webp"
+                            <img loading="lazy" src="./assets/images/hotel/rooms/family-room.webp"
                                 alt="A family suite room with 2 bed rooms" />
                         </div>
                         <div class="room-body">
@@ -204,7 +205,7 @@
                     <p class="breakfast-paragraph">Start your day with a breakfast buffet that has something for
                         everyone.
                         Thai favourites and international classics, cooked fresh every morning.</p>
-                    <p class="breakfast-time"><span>06:00 — 9:30 daily</span> &middot; International &amp; Thai</p>
+                    <p class="breakfast-time"><span>06:00 — 9:30 daily</span> &middot; International and Thai</p>
                 </div>
 
                 <figure class="dining-hero-fig">
@@ -268,7 +269,7 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-hand-heart">
+                            aria-hidden="true" focusable="false" class="lucide lucide-hand-heart">
                             <path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
                             <path
                                 d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" />
@@ -276,7 +277,7 @@
                             <path
                                 d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" />
                         </svg>
-                        <h4>Thai Massage</h4>
+                        <h3>Thai Massage</h3>
                         <p>
                             Traditional Thai massage, brought to your room.
                         </p>
@@ -284,12 +285,12 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-utensils">
+                            aria-hidden="true" focusable="false" class="lucide lucide-utensils">
                             <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
                             <path d="M7 2v20" />
                             <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
                         </svg>
-                        <h4>Rim Ping Terrace</h4>
+                        <h3>Rim Ping Terrace</h3>
                         <p>
                             The hotel restaurant, out beside the pool. Thai cooking and a bar.
                         </p>
@@ -297,11 +298,11 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-clock">
+                            aria-hidden="true" focusable="false" class="lucide lucide-clock">
                             <circle cx="12" cy="12" r="10" />
                             <path d="M12 6v6l4 2" />
                         </svg>
-                        <h4>24-Hour Front Desk</h4>
+                        <h3>24-Hour Front Desk</h3>
                         <p>
                             Our team is here around the clock — early arrivals and late check-outs welcome.
                         </p>
@@ -309,7 +310,7 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-waves-ladder">
+                            aria-hidden="true" focusable="false" class="lucide lucide-waves-ladder">
                             <path d="M19 5a2 2 0 0 0-2 2v11" />
                             <path
                                 d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
@@ -317,7 +318,7 @@
                             <path d="M7 9h10" />
                             <path d="M9 5a2 2 0 0 0-2 2v11" />
                         </svg>
-                        <h4>Outdoor Pool</h4>
+                        <h3>Outdoor Pool</h3>
                         <p>
                             An outdoor pool on the terrace, above the riverside promenade.
                         </p>
@@ -326,13 +327,13 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-bike">
+                            aria-hidden="true" focusable="false" class="lucide lucide-bike">
                             <circle cx="18.5" cy="17.5" r="3.5" />
                             <circle cx="5.5" cy="17.5" r="3.5" />
                             <circle cx="15" cy="5" r="1" />
                             <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
                         </svg>
-                        <h4>Free Bicycles</h4>
+                        <h3>Free Bicycles</h3>
                         <p>
                             Grab a bike and follow the river to the bridge, temples and night market.
                         </p>
@@ -340,13 +341,13 @@
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-wifi">
+                            aria-hidden="true" focusable="false" class="lucide lucide-wifi">
                             <path d="M12 20h.01" />
                             <path d="M2 8.82a15 15 0 0 1 20 0" />
                             <path d="M5 12.859a10 10 0 0 1 14 0" />
                             <path d="M8.5 16.429a5 5 0 0 1 7 0" />
                         </svg>
-                        <h4>Free WI-FI &amp; Parking</h4>
+                        <h3>Free Wi-Fi &amp; Parking</h3>
                         <p>
                             Fast Wi-Fi throughout the hotel and ample free parking for guests.
                         </p>
@@ -404,7 +405,7 @@
                                 training days that need space without the full ballroom.</p>
                         </li>
                         <li class="venue">
-                            <h4><span lang="th">จอมพล</span> Chom Phon</h4>
+                            <h4><span lang="th">จอมพล</span> Chomphon</h4>
                             <p>A meeting room for seminars, workshops and board meetings —
                                 classroom rows or a single long table.</p>
                         </li>
@@ -440,12 +441,12 @@
                 <div class="contact-grid">
                     <div class="contact-detail">
                         <p class="contact-kicker">Find us</p>
-                        <h2>Contact & Location</h2>
+                        <h2>Contact &amp; Location</h2>
                         <ul>
                             <li>
                                 <p class="sub-contact-kicker">Address</p>
                                 <p class="sub-contact-detail">
-                                    236 Jompol Road, Muang District,
+                                    236 Chomphon Road, Muang District,
                                     Tak 63000, Thailand
                                 </p>
                             </li>
@@ -459,27 +460,64 @@
                             <li>
                                 <p class="sub-contact-kicker">Email</p>
                                 <p class="sub-contact-detail">
-                                    <a href="mailto:viangtakriverside@gmail.com">viangtakriverside@gmail.com</a> 
+                                    <a href="mailto:viangtakriverside@gmail.com">viangtakriverside@gmail.com</a>
                                 </p>
+                            </li>
+                            <li>
+                                <p class="sub-contact-kicker">Message us</p>
+                                <div class="channel-buttons">
+
+                                    <button class="btn-channel btn-line js-line-qr" type="button"
+                                        aria-haspopup="dialog">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                            focusable="false">
+                                            <path
+                                                d="M24 10.3C24 5 18.6.7 12 .7S0 5 0 10.3c0 4.8 4.3 8.8 10 9.5.4.1.9.3 1.1.6.2.3.1.7.1 1l-.2 1.1c0 .3-.2 1.3 1 .7 1.3-.5 7-4.1 9.5-7 1.7-1.9 2.5-3.8 2.5-5.9zM7.3 13.4H4.9a.6.6 0 0 1-.6-.6V8a.6.6 0 0 1 1.2 0v4.2h1.8a.6.6 0 0 1 0 1.2zm2.4-.6a.6.6 0 0 1-1.2 0V8a.6.6 0 0 1 1.2 0zm5.8 0a.6.6 0 0 1-.4.6h-.2a.6.6 0 0 1-.5-.2l-2.5-3.3v2.9a.6.6 0 0 1-1.2 0V8a.6.6 0 0 1 .4-.6h.2c.2 0 .4.1.5.2l2.5 3.4V8a.6.6 0 0 1 1.2 0zm3.9-3a.6.6 0 0 1 0 1.2h-1.8v1.2h1.8a.6.6 0 0 1 0 1.2h-2.4a.6.6 0 0 1-.6-.6V8a.6.6 0 0 1 .6-.6h2.4a.6.6 0 0 1 0 1.2h-1.8v1.2z" />
+                                        </svg>
+                                        LINE
+                                    </button>
+
+                                    <a class="btn-channel btn-facebook"
+                                        href="https://www.facebook.com/viangtakriversidehotel" target="_blank"
+                                        rel="noopener">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                                            focusable="false">
+                                            <path
+                                                d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" />
+                                        </svg>
+                                        Facebook
+                                    </a>
+
+                                </div>
                             </li>
                             <li>
                                 <p class="sub-contact-kicker">Front desk</p>
                                 <p class="sub-contact-detail">
-                                    Open 24 hours &middot; English & Thai spoken
+                                    Open 24 hours &middot; English and Thai spoken
                                 </p>
                             </li>
                         </ul>
+
                         <a class="google-map-btn"
-                            href="https://www.google.com/maps/place/Viang+Tak+Riverside+Hotel/@16.8723522,99.1205155,17z/data=!3m1!4b1!4m9!3m8!1s0x30ddd995613bc8f5:0x1c77719d6469e158!5m2!4m1!1i2!8m2!3d16.8723471!4d99.1230904!16s%2Fg%2F1tf04t0m?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D"
-                            target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            href="https://www.google.com/maps/place/Viang+Tak+Riverside+Hotel/@16.8723522,99.1205155,17z/data=!3m1!4b1!4m9!3m8!1s0x30ddd995613bc8f5:0x1c77719d6469e158!5m2!4m1!1i2!8m2!3d16.8723471!4d99.1230904!16s%2Fg%2F1tf04t0m"
+                            target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-map-pin">
+                                <path
+                                    d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Open in Google Maps
+                        </a>
                     </div>
+
                     <div class="google-map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.071601467694!2d99.12051547492187!3d16.872352217438426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ddd995613bc8f5%3A0x1c77719d6469e158!2sViang%20Tak%20Riverside%20Hotel!5e0!3m2!1sen!2sth!4v1788681970036!5m2!1sen!2sth"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Map showing The Viang Tak Riverside Hotel, Jompol Road, Tak" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+                            title="Map showing The Viang Tak Riverside Hotel, Chomphon Road, Tak" width="600"
+                            height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
                         </iframe>
                     </div>
                 </div>
@@ -487,6 +525,123 @@
         </section>
     </main>
 
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <p class="footer-wordmark">The Viang Tak</p>
+                <p class="footer-wordmark-sub">Riverside Hotel</p>
+                <p class="footer-tagline">On the Ping River, in the heart of Tak.</p>
+
+                <ul class="footer-social">
+                    <li>
+                        <button class="js-line-qr" type="button" aria-haspopup="dialog"
+                            aria-label="Show the LINE QR code">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path
+                                    d="M24 10.3C24 5 18.6.7 12 .7S0 5 0 10.3c0 4.8 4.3 8.8 10 9.5.4.1.9.3 1.1.6.2.3.1.7.1 1l-.2 1.1c0 .3-.2 1.3 1 .7 1.3-.5 7-4.1 9.5-7 1.7-1.9 2.5-3.8 2.5-5.9zM7.3 13.4H4.9a.6.6 0 0 1-.6-.6V8a.6.6 0 0 1 1.2 0v4.2h1.8a.6.6 0 0 1 0 1.2zm2.4-.6a.6.6 0 0 1-1.2 0V8a.6.6 0 0 1 1.2 0zm5.8 0a.6.6 0 0 1-.4.6h-.2a.6.6 0 0 1-.5-.2l-2.5-3.3v2.9a.6.6 0 0 1-1.2 0V8a.6.6 0 0 1 .4-.6h.2c.2 0 .4.1.5.2l2.5 3.4V8a.6.6 0 0 1 1.2 0zm3.9-3a.6.6 0 0 1 0 1.2h-1.8v1.2h1.8a.6.6 0 0 1 0 1.2h-2.4a.6.6 0 0 1-.6-.6V8a.6.6 0 0 1 .6-.6h2.4a.6.6 0 0 1 0 1.2h-1.8v1.2z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/viangtakriversidehotel" target="_blank" rel="noopener"
+                            aria-label="The Viang Tak Riverside Hotel on Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path
+                                    d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:viangtakriverside@gmail.com" aria-label="Email the hotel">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <h2 class="footer-heading">Explore</h2>
+                <ul>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#dining">Dining</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-contact">
+                <h2 class="footer-heading">Get in touch</h2>
+                <address>
+                    236 Chomphon Road, Muang District,<br>
+                    Tak 63000, Thailand
+                    <a href="tel:+6655512507">+66 55 512 507</a>
+                    <a href="tel:+66818872905">+66 81 887 2905</a>
+                    <a href="mailto:viangtakriverside@gmail.com">viangtakriverside@gmail.com</a>
+                </address>
+                <p class="footer-note">Front desk open 24 hours</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 The Viang Tak Riverside Hotel. All rights reserved.</p>
+            <p class="footer-credit">
+                Built by <a href="https://github.com/IzetIzoKarisik" target="_blank" rel="noopener">Izzet Izo Karisik</a>
+            </p>
+            <a class="footer-top" href="#top">
+                Back to top
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M12 19V5M5 12l7-7 7 7" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+
+    <dialog id="line-modal" aria-labelledby="line-modal-title">
+        <h2 id="line-modal-title">Message us on LINE</h2>
+        <img src="./assets/images/line-qr.png" alt="LINE QR code for The Viang Tak Riverside Hotel" width="220"
+            height="220">
+        <p>Scan with your LINE app to message the front desk.</p>
+        <button class="modal-close" type="button">Close</button>
+    </dialog>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "The Viang Tak Riverside Hotel",
+      "description": "Riverside hotel in the heart of Tak, on the Ping River.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "236 Chomphon Road",
+        "addressLocality": "Muang District",
+        "addressRegion": "Tak",
+        "postalCode": "63000",
+        "addressCountry": "TH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 16.8723471,
+        "longitude": 99.1230904
+      },
+      "telephone": "+66-55-512-507",
+      "email": "viangtakriverside@gmail.com",
+      "priceRange": "฿฿",
+      "sameAs": [
+        "https://www.facebook.com/viangtakriversidehotel"
+      ]
+    }
+    </script>
 
 </body>
 
