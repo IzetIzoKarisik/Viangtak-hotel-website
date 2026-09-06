@@ -901,7 +901,9 @@ body.nav-open {
     list-style: none;
     color: var(--ink);
     font-family: var(--font-body);
+    padding: 0;
 }
+
 
 .amenities-grid h4 {
     font-family: var(--font-heading);
