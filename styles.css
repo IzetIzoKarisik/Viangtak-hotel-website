@@ -897,7 +897,7 @@ body.nav-open {
 .amenities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     list-style: none;
     color: var(--ink);
     font-family: var(--font-body);
