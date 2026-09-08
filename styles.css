@@ -39,8 +39,10 @@ html {
     --line-green: #05913f;
     --facebook-blue: #0b5fcc;
 
-    --font-heading: "Playfair Display", Georgia, serif;
-    --font-body: "Inter", sans-serif;
+
+
+    --font-heading: "Playfair Display", "Noto Serif Thai", Georgia, serif;
+    --font-body: "Inter", "Noto Sans Thai", sans-serif;
     --font-price: "Fraunces", "Playfair Display", Georgia, serif;
 }
 
@@ -144,6 +146,17 @@ html {
     color: var(--ink);
 }
 
+/* for index-th.html */
+
+.thai-version .primary-nav a {
+    font-size: 1.2rem;
+}
+
+.thai-version .hotel-header.scrolled .primary-nav a {
+    font-size: 0.9rem;
+}
+
+
 
 /* ======= h2 ====== */
 
@@ -237,6 +250,7 @@ h2 {
     padding: .6rem 2rem;
     box-shadow: 0 1px 12px rgba(0, 0, 0, .08);
 }
+
 
 .logo {
     position: relative;
@@ -1635,6 +1649,11 @@ body.nav-open {
 /* ====== RESPONSIVE — 840px (nav switches to horizontal) ====== */
 
 @media (min-width: 840px) {
+
+    /* for thai version */
+    .thai-version .primary-nav a {
+        font-size: 0.9rem;
+    }
 
     .nav-toggle {
         display: none;
