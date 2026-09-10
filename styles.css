@@ -158,7 +158,7 @@ html {
 
 #thai-version .explore-btn {
     font-size: 1rem;
-    padding: 1.1rem 1.6rem;
+    padding: 1.2rem 1.7rem 1.2rem 1.3rem;
 }
 
 
@@ -564,10 +564,12 @@ body.nav-open {
     width: 90%;
 }
 
+
 .hero-text .explore-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
-    padding: 1.2rem 1.7rem;
+    padding: 1.2rem 1.7rem 1.2rem 1.3rem;
     background-color: var(--green);
     border: none;
     border-radius: 50px;
@@ -578,6 +580,10 @@ body.nav-open {
     font-size: 0.9rem;
     margin-top: 1.5rem;
     transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.explore-btn svg {
+    margin-right: .3rem;
 }
 
 @media (hover: hover) {
