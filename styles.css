@@ -569,7 +569,7 @@ body.nav-open {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    padding: 1.2rem 1.7rem 1.2rem 1.3rem;
+    padding: 1rem 1.5rem 1rem 1.1rem;
     background-color: var(--green);
     border: none;
     border-radius: 50px;
