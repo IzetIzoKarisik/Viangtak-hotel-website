@@ -146,23 +146,6 @@ html {
     color: var(--ink);
 }
 
-/* for thai version */
-
-#thai-version .primary-nav a {
-    font-size: 1.2rem;
-}
-
-#thai-version .hotel-header.scrolled .primary-nav a {
-    font-size: 0.9rem;
-}
-
-#thai-version .explore-btn {
-    font-size: 1rem;
-    padding: 1rem 1.5rem 1rem 1.1rem;
-}
-
-
-
 /* ======= h2 ====== */
 
 h2 {
@@ -1569,6 +1552,19 @@ body.nav-open {
 }
 
 
+/* for thai version */
+
+#thai-version .primary-nav a {
+    font-size: 1.2rem;
+}
+
+#thai-version .explore-btn {
+    font-size: 1rem;
+    padding: 1rem 1.5rem 1rem 1.1rem;
+}
+
+
+
 /* ====== RESPONSIVE — 768px ====== */
 
 @media (min-width: 768px) {
@@ -1669,7 +1665,7 @@ body.nav-open {
     #thai-version .primary-nav a {
         font-size: 0.9rem;
     }
-
+    
     .nav-toggle {
         display: none;
     }
