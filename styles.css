@@ -1556,6 +1556,7 @@ body.nav-open {
 
 #thai-version .primary-nav a {
     font-size: 1.2rem;
+    letter-spacing: 1px;
 }
 
 #thai-version .explore-btn {
