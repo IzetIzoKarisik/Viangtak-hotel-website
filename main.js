@@ -87,3 +87,48 @@ function updateScrolled() {
         header.classList.remove("scrolled");
     }
 }
+
+
+
+
+
+// Fix the scroll smooth problem on iOS device 
+const HEADER_OFFSET = 80;   // matches scroll-padding-top: 5rem
+const DURATION = 600;       // ms
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+function smoothScrollTo(target) {
+  const startY = window.scrollY;
+  const endY = target.getBoundingClientRect().top + startY - HEADER_OFFSET;
+  const distance = endY - startY;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / DURATION, 1);
+    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+document.addEventListener("click", function (e) {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+
+  const id = link.getAttribute("href");
+  const target = document.querySelector(id);
+  if (!target) return;
+
+  e.preventDefault();
+
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET);
+  } else {
+    smoothScrollTo(target);
+  }
+
+  history.pushState(null, "", id);
+});

@@ -16,7 +16,7 @@ body {
 
 html {
     scroll-padding-top: 5rem;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; Use JS to controll the scroll instead*/
 }
 
 
@@ -1186,9 +1186,12 @@ body.nav-open {
 }
 
 .sub-contact-detail a {
-    text-decoration: none;
+    text-decoration: dotted underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
     color: var(--ink);
 }
+
 
 
 /* --- LINE and Facebook buttons --- */
