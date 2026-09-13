@@ -66,7 +66,7 @@
                     <li>
                         <label class="room-option">
                             <input type="radio" id="room-deluxe-room" name="room" value="Deluxe Room"
-                                class="visually-hidden" data-rate="1500" data-max="2">
+                                class="visually-hidden" data-rate="1500" data-max="2" required>
                             <span class="room-name">Deluxe Room</span>
                             <span class="room-price">฿1,500<span> / night</span></span>
                             <span class="room-detail">36 m² · two singles</span>
@@ -75,7 +75,7 @@
                     <li>
                         <label class="room-option">
                             <input type="radio" id="room-corner-suite" name="room" value="Corner Suite"
-                                class="visually-hidden" data-rate="1600" data-max="2" checked>
+                                class="visually-hidden" data-rate="1600" data-max="2" required>
                             <span class="room-name">Corner Suite</span>
                             <span class="room-price">฿1,600<span> / night</span></span>
                             <span class="room-detail">45 m² · king bed</span>
@@ -84,7 +84,7 @@
                     <li>
                         <label class="room-option">
                             <input type="radio" id="room-family-suite" name="room" value="Family Suite"
-                                class="visually-hidden" data-rate="2300" data-max="4">
+                                class="visually-hidden" data-rate="2300" data-max="4" required>
                             <span class="room-name">Family Suite</span>
                             <span class="room-price">฿2,300<span> / night</span></span>
                             <span class="room-detail">2 bedrooms · up to 4</span>
@@ -146,8 +146,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="email">Email <span class="field-note">— optional, for a written
-                            confirmation</span></label>
+                    <label for="email">Email <span class="field-note">— optional</span></label>
                     <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
                 </div>
 
