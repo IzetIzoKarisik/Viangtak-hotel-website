@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve a room — The Viang Tak Riverside Hotel</title>
+    <meta name="description"
+        content="Request a room at The Viang Tak Riverside Hotel in Tak. No payment now — the front desk confirms your dates.">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fraunces:wght@400;500&family=Noto+Sans+Thai:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="reservation.js" defer></script>
+</head>
+
+<body id="reserve-page">
+
+    <header class="hotel-header">
+        <a href="index.html" class="logo">
+            <span class="brand-name">The Viang Tak</span>
+            <span class="sub-brand-name">Riverside Hotel</span>
+        </a>
+
+        <a href="index.html#rooms" class="back-to-room"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-move-left">
+                <path d="M6 8L2 12L6 16" />
+                <path d="M2 12H22" />
+            </svg>Back to rooms</a>
+    </header>
+
+    <main class="reserve-section">
+        <div class="container">
+
+            <div class="reserve-text">
+                <p class="reserve-kicker">Reservation</p>
+                <h1>Reserve your room</h1>
+                <p class="reserve-text-p">
+                    A request, not a payment. Tell us the room and the dates, and the front desk confirms availability
+                    before anything is charged.
+                </p>
+            </div>
+
+            <form class="form-container" name="reservation" method="POST" data-netlify="true"
+                data-netlify-honeypot="bot-field" action="/thanks.html">
+
+                <!-- tells Netlify which form this is -->
+                <input type="hidden" name="form-name" value="reservation">
+                <input type="hidden" name="subject" value="New room request — viangtakriverside.com">
+
+                <!-- honeypot: off-screen for people, irresistible to bots -->
+                <p class="hidden">
+                    <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                </p>
+
+                <!-- ===== 1 · YOUR ROOM ===== -->
+                <p class="form-kicker">1 &bullet; your room</p>
+
+                <ul class="room-options">
+                    <li>
+                        <label class="room-option">
+                            <input type="radio" id="room-deluxe-room" name="room" value="Deluxe Room"
+                                class="visually-hidden" data-rate="1500" data-max="2">
+                            <span class="room-name">Deluxe Room</span>
+                            <span class="room-price">฿1,500<span> / night</span></span>
+                            <span class="room-detail">36 m² · two singles</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="room-option">
+                            <input type="radio" id="room-corner-suite" name="room" value="Corner Suite"
+                                class="visually-hidden" data-rate="1600" data-max="2" checked>
+                            <span class="room-name">Corner Suite</span>
+                            <span class="room-price">฿1,600<span> / night</span></span>
+                            <span class="room-detail">45 m² · king bed</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="room-option">
+                            <input type="radio" id="room-family-suite" name="room" value="Family Suite"
+                                class="visually-hidden" data-rate="2300" data-max="4">
+                            <span class="room-name">Family Suite</span>
+                            <span class="room-price">฿2,300<span> / night</span></span>
+                            <span class="room-detail">2 bedrooms · up to 4</span>
+                        </label>
+                    </li>
+                </ul>
+
+                <!-- ===== GUESTS ===== -->
+                <div class="guests-select-sec">
+                    <div class="guests-select-text">
+                        <p>Guests</p>
+                        <p class="room-max">This room sleeps up to <span id="room-max-value">2</span>.</p>
+                    </div>
+
+                    <div class="plus-minus-el">
+                        <button type="button" id="guests-minus" aria-label="Fewer guests">&minus;</button>
+                        <span id="guests-display" aria-live="polite">2</span>
+                        <button type="button" id="guests-plus" aria-label="More guests">+</button>
+                    </div>
+
+                    <input type="hidden" name="guests" id="guests-field" value="2">
+                </div>
+
+                <!-- ===== 2 · YOUR DATES ===== -->
+                <p class="sub-form-kicker">2 &bullet; Your dates</p>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                </div>
+
+                <p class="form-note">
+                    Travelling for Loi Krathong Sai in November? Those nights fill early. Send your request well ahead.
+                </p>
+
+                <!-- ===== 3 · YOUR DETAILS ===== -->
+                <p class="sub-form-kicker">3 &bullet; Your details</p>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required autocomplete="name"
+                            placeholder="Name and Surname">
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel"
+                            pattern="[0-9\(\)+\- ]{8,20}" title="Numbers only, e.g. 0812345678 or +66 81 234 5678"
+                            placeholder="08x-xxx-xxxx">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email <span class="field-note">— optional, for a written
+                            confirmation</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+                </div>
+
+                <!-- ===== 4 · ANYTHING ELSE ===== -->
+                <p class="sub-form-kicker">4 &bullet; Anything else</p>
+
+                <div class="field">
+                    <label for="notes" class="visually-hidden">Anything we should know?</label>
+                    <textarea id="notes" name="notes" rows="3"
+                        placeholder="Late arrival, extra bed, quiet floor, early check-in..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send request</button>
+            </form>
+
+        </div>
+    </main>
+</body>
+
+</html>

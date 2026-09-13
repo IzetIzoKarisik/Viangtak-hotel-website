@@ -81,6 +81,346 @@ html {
 }
 
 
+
+/* ======= Reservation page ======= */
+#reserve-page {
+    background-color: var(--sand);
+}
+
+#reserve-page .hotel-header {
+    background-color: var(--cream);
+    position: static;
+}
+
+#reserve-page .container {
+    padding-top: 2rem;
+}
+
+#reserve-page .logo .brand-name {
+    color: var(--green);
+}
+
+#reserve-page .logo .sub-brand-name {
+    color: var(--teal);
+}
+
+#reserve-page .back-to-room {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: large;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+#reserve-page .reserve-text-p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.5;
+
+}
+
+#reserve-page .form-container {
+    padding: 3rem;
+    background-color: var(--white);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.1), -5px -5px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+#reserve-page .form-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 2rem 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+#reserve-page .form-container ul .room-price span {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: .8rem;
+    color: var(--ink-soft);
+    margin-left: .3rem;
+}
+
+
+.guests-select-sec {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 2rem 0 2rem 0;
+
+    background-color: var(--cream);
+    border-radius: 20px;
+    padding: 1.5rem 1.5rem;
+}
+
+.guests-select-text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+#reserve-page h1 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-top: 1rem;
+    max-width: 35rem;
+}
+
+.guests-select-text p {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: .5px;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.guests-select-sec .room-max {
+    font-family: var(--font-body);
+    color: var(--ink);
+    letter-spacing: .5px;
+    font-weight: 300;
+    font-size: .8rem;
+}
+
+.plus-minus-el {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+
+.plus-minus-el button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    border: 1px solid rgba(128, 128, 128, 0.522);
+    border-radius: 50%;
+    color: var(--ink);
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.plus-minus-el button:hover {
+    border: 1px solid rgb(119, 54, 54);
+}
+
+.plus-minus-el span {
+    font-size: 1.3rem;
+    font-family: var(--font-price);
+}
+
+/* ======= Reservation — room options ======= */
+
+.room-option {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    height: 100%;
+    padding: 1.5rem;
+    border: 2px solid rgba(28, 43, 45, 0.15);
+    border-radius: 20px;
+    background-color: var(--cream);
+    cursor: pointer;
+    transition: border-color .3s ease, background-color .3s ease, transform .3s ease;
+}
+
+.room-option .room-name {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--ink);
+}
+
+.room-option .room-price {
+    font-family: var(--font-price);
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    color: var(--ink-soft);
+}
+
+.room-option .room-price span {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: .8rem;
+    margin-left: .3rem;
+}
+
+.room-option .room-detail {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: .9rem;
+    color: var(--ink-soft);
+}
+
+/* selected state — the radio drives it, no JS needed */
+.room-option:has(input:checked) {
+    border-color: var(--deep-green);
+    background-color: #eefaf3;
+}
+
+/* focus lands on the hidden radio, so show the ring on the card */
+.room-option:has(input:focus-visible) {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .room-option:hover {
+        transform: translateY(-3px);
+    }
+}
+
+
+/* ======= Reservation — form fields ======= */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.field-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+#reserve-page .field,
+#reserve-page .field-row {
+    margin-top: 1.25rem;
+}
+
+#reserve-page .field-row .field {
+    margin-top: 0;
+}
+
+.field label {
+    font-family: var(--font-body);
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.field .field-note {
+    font-weight: 300;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--gold);
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: .9rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink);
+    background-color: var(--cream);
+    border: 1px solid rgba(28, 43, 45, 0.18);
+    border-radius: 12px;
+    transition: border-color .3s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: var(--ink-soft);
+    opacity: .65;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+    border-color: var(--deep-green);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 7rem;
+    line-height: 1.6;
+}
+
+#reserve-page .form-container .sub-form-kicker {
+    margin-top: 2.5rem;
+}
+
+.form-note {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: .9rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 1rem 0 0;
+}
+
+.submit-btn {
+    display: inline-block;
+    margin-top: 2.5rem;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 1.1rem 1.9rem;
+    cursor: pointer;
+    transition: transform .3s ease, background-color .3s ease;
+}
+
+@media (hover: hover) {
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        background-color: var(--deep-green);
+    }
+}
+
+.submit-btn:active {
+    transform: scale(.97);
+}
+
+
+/* ======= screen-reader-only ======= */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.submit-btn:disabled {
+    background-color: #b9c0ad;
+    cursor: not-allowed;
+}
+
+@media (hover: hover) {
+    .submit-btn:disabled:hover {
+        transform: none;
+        background-color: #b9c0ad;
+    }
+}
+
 /* ========== SKIP LINK ========== */
 
 .skip-link {
@@ -109,6 +449,7 @@ html {
 
 /* ========== KICKERS ========== */
 
+#reserve-page .reserve-kicker,
 .dining-text .kicker,
 .welcome-section .welcome-kicker,
 .room-section-text .room-kicker,
@@ -116,7 +457,9 @@ html {
 .event-kicker,
 .amenities-kicker,
 .contact-kicker,
-.sub-contact-kicker {
+.sub-contact-kicker,
+.form-kicker,
+.sub-form-kicker {
     margin: 0;
     font-family: var(--font-body);
     text-transform: uppercase;
@@ -146,6 +489,18 @@ html {
     color: var(--ink);
 }
 
+#reserve-page .reserve-kicker,
+.form-kicker,
+.sub-form-kicker {
+    color: var(--gold)
+}
+
+/* ======= forms ======= */
+.hidden {
+    position: absolute;
+    left: -9999px;
+}
+
 /* ======= h2 ====== */
 
 h2 {
@@ -159,45 +514,6 @@ h2 {
 
 .dining-section h2 {
     color: var(--white);
-}
-
-/* ======= For booking html styling ======= */
-
-.booking-page {
-    background-color: var(--sand);
-}
-
-.booking-page .hotel-header {
-    background-color: var(--cream);
-    position: static;
-}
-
-.booking-page .brand-name {
-    color: var(--ink);
-    font-weight: 500;
-    font-size: 1.4rem;
-}
-
-.booking-page .sub-brand-name {
-    color: var(--deep-green);
-    font-weight: 300;
-    font-size: .7rem;
-}
-
-.booking-page .logo {
-    border-bottom: none;
-}
-
-.booking-page .hotel-header .back-btn {
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    align-items: center;
-    display: inline-flex;
-    color: var(--deep-green);
-    gap: .7rem;
-    cursor: pointer;
-    letter-spacing: .15rem;
-    text-decoration: none;
 }
 
 /* anchor tag and card kicker */
@@ -234,7 +550,7 @@ h2 {
 }
 
 .hotel-header.scrolled {
-    background-color: var(--cream);
+    background-color: var(--white);
     padding: .6rem 2rem;
     box-shadow: 0 1px 12px rgba(0, 0, 0, .08);
 }
@@ -1655,6 +1971,12 @@ body.nav-open {
     .footer-brand {
         grid-column: 1 / -1;
     }
+
+    /* ======= forms ======= */
+    .field-row {
+        flex-direction: row;
+        gap: 1rem;
+    }
 }
 
 
@@ -1666,7 +1988,7 @@ body.nav-open {
     #thai-version .primary-nav a {
         font-size: 0.9rem;
     }
-    
+
     .nav-toggle {
         display: none;
     }
