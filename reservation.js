@@ -94,8 +94,20 @@ function updateSubmit() {
 form.addEventListener("input", updateSubmit);
 form.addEventListener("change", updateSubmit);
 
-updateSubmit();
+// ===== Don't send optional fields that were left blank =====
 
+const notes = document.getElementById("notes");
+const emailField = document.getElementById("email");
+
+form.addEventListener("submit", function () {
+    [notes, emailField].forEach(function (field) {
+        if (field.value.trim() === "") {
+            field.removeAttribute("name");
+        } else {
+            field.setAttribute("name", field.id);
+        }
+    });
+});
 
 // ===== Run once when the page loads =====
 
