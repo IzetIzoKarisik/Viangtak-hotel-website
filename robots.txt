@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Confirmation pages - no value in search results
+Disallow: /thanks.html
+Disallow: /thanks-th.html
+
+Sitemap: https://viangtakriverside.com/sitemap.xml
