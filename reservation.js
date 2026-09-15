@@ -115,20 +115,7 @@ form.addEventListener("submit", function () {
 /* ---- ตั้งหัวข้ออีเมลให้ไม่ซ้ำกัน กันไม่ให้ Gmail รวบเป็นเธรดเดียว ---- */
 const subjectForm = document.querySelector('form[data-netlify="true"]');
 
-if (subjectForm) {
-  subjectForm.addEventListener('submit', () => {
-        const field = n =>
-      (subjectForm.querySelector(`[name="${n}"]:checked`) ||
-       subjectForm.querySelector(`[name="${n}"]`))?.value || '-';
-    const stamp = new Date().toLocaleString('th-TH', {
-      day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
-    });
-    const subject = subjectForm.querySelector('#mail-subject');
-    if (subject) {
-      subject.value = `จองห้อง ${field('room')} · ${field('name')} · เข้าพัก ${field('checkin')} · ${stamp}`;
-    }
-  });
-}
+
 // ===== Run once when the page loads =====
 
 showGuests();
