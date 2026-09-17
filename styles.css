@@ -455,7 +455,7 @@ html {
 .room-section-text .room-kicker,
 .zag-body .zag-kicker,
 .event-kicker,
-.amenities-kicker,
+.facilities-kicker,
 .contact-kicker,
 .sub-contact-kicker,
 .form-kicker,
@@ -471,7 +471,7 @@ html {
 .welcome-section .welcome-kicker,
 .room-section-text .room-kicker,
 .event-kicker,
-.amenities-kicker,
+.facilities-kicker,
 .sub-contact-kicker {
     color: var(--deep-green);
 }
@@ -1250,13 +1250,13 @@ body.nav-open {
 }
 
 
-/* ======= AMENITIES ======= */
+/* ======= facilities ======= */
 
-.amenities-section {
+.facilities-section {
     background-color: var(--sand);
 }
 
-.amenities-grid {
+.facilities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
@@ -1266,7 +1266,7 @@ body.nav-open {
     padding: 0;
 }
 
-.amenities-grid svg {
+.facilities-grid svg {
     width: 2.5rem;
     height: 2.5rem;
     color: var(--deep-green);
@@ -1274,7 +1274,7 @@ body.nav-open {
     stroke-width: 1.5;
 }
 
-.amenities-grid h3 {
+.facilities-grid h3 {
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 1.15rem;
@@ -1282,7 +1282,7 @@ body.nav-open {
     margin: 0;
 }
 
-.amenities-grid p {
+.facilities-grid p {
     font-family: var(--font-heading);
     letter-spacing: .5px;
     font-size: 1rem;
