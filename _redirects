@@ -1,7 +1,0 @@
-# Old ReadyPlanet URLs still in Google's index -> send them to the new site
-# Format: [from]  [to]  [status]
-
-/contactus.html    /    301
-/contactus         /    301
-/index.php         /    301
-/index.php/*       /    301

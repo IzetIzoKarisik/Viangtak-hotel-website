@@ -112,8 +112,28 @@ form.addEventListener("submit", function () {
     });
 });
 
-/* ---- ตั้งหัวข้ออีเมลให้ไม่ซ้ำกัน กันไม่ให้ Gmail รวบเป็นเธรดเดียว ---- */
-const subjectForm = document.querySelector('form[data-netlify="true"]');
+// ===== Give every reservation email a different subject line =====
+// Netlify sends an email every time this form is submitted. If the subject
+// line were exactly the same every time (like the placeholder text sitting
+// in the hidden "subject" field in the HTML right now), Gmail would group
+// every request into one long conversation, and a new request could get
+// buried in there instead of showing up as its own message. Filling in the
+// hidden field right before the form submits gives each email its own
+// subject line, built from details of that one request, so Gmail keeps
+// them separate.
+
+const subjectField = document.getElementById("subject");
+
+form.addEventListener("submit", function () {
+    const chosenRoomRadio = document.querySelector('input[name="room"]:checked');
+    const roomName = chosenRoomRadio.value;
+    const guestName = document.getElementById("name").value;
+    const checkinDate = checkin.value;
+    const submittedAt = new Date().toLocaleString();
+
+    subjectField.value = "New reservation request - " + roomName + " - " + guestName +
+        " (check-in " + checkinDate + ") - sent " + submittedAt;
+});
 
 
 // ===== Run once when the page loads =====

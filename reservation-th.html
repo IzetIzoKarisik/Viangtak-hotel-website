@@ -80,6 +80,12 @@
 
                 <input type="hidden" name="form-name" value="reservation-th">
 
+                <!-- Netlify uses this field as the subject line of the notification
+                     email it sends. reservation.js fills in the real value (room,
+                     guest name, dates) right before the form submits, so every
+                     email gets its own subject instead of this placeholder. -->
+                <input type="hidden" name="subject" id="subject" value="New reservation request">
+
                 <p class="hidden">
                     <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
                 </p>

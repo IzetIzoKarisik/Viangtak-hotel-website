@@ -459,7 +459,8 @@ html {
 .contact-kicker,
 .sub-contact-kicker,
 .form-kicker,
-.sub-form-kicker {
+.sub-form-kicker,
+.gallery-kicker {
     margin: 0;
     font-family: var(--font-body);
     text-transform: uppercase;
@@ -472,7 +473,8 @@ html {
 .room-section-text .room-kicker,
 .event-kicker,
 .facilities-kicker,
-.sub-contact-kicker {
+.sub-contact-kicker,
+.gallery-kicker {
     color: var(--deep-green);
 }
 
@@ -863,6 +865,14 @@ body.nav-open {
     width: 90%;
 }
 
+
+.hero-text .hero-paragraph a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+}
 
 .hero-text .explore-btn {
     display: inline-flex;
@@ -1880,6 +1890,30 @@ body.nav-open {
     padding: 1rem 1.5rem 1rem 1.1rem;
 }
 
+/* Thai script stacks tone marks above a letter and some vowels below it,
+   so it needs more vertical room per line than Latin text does. The h1/h2
+   rules earlier in this file don't set a line-height at all (so the
+   browser uses its own default, "normal", which is roughly 1.2) — tight
+   enough that on a wrapped Thai heading, the tone marks of one line can
+   sit right against the letters of the line above. 1.45 gives them room
+   to clear. This is Thai-only: English headings keep the browser default. */
+#thai-version h1,
+#thai-version h2 {
+    line-height: 1.45;
+}
+
+/* Keeps "นับพัน" ("a thousand") from being split across two lines. Thai
+   is written with no spaces between words, so the browser's line-breaker
+   is free to wrap at any word boundary it finds — and "นับ" + "พัน" are
+   two words that read fine on their own, so it doesn't know they're
+   meant to stay together here as one phrase. Wrapping just this phrase in
+   a span with "white-space: nowrap" tells it to treat those characters as
+   one unbreakable unit, the same way "nowrap" is used for numbers or
+   names in English that should never split. */
+.nowrap-th {
+    white-space: nowrap;
+}
+
 
 
 /* ====== RESPONSIVE — 768px ====== */
@@ -1895,6 +1929,8 @@ body.nav-open {
     .hero-text h1 {
         text-shadow: 0 0 1px black;
         font-weight: 600;
+        font-size: clamp(2.1rem, 7vw, 3rem);
+
     }
 
     .hero-kicker {
@@ -2061,6 +2097,10 @@ body.nav-open {
         max-width: 750px;
     }
 
+    .hero-text h1 {
+        font-size: clamp(2.1rem, 7vw, 4rem);
+    }
+
     .hero-kicker {
         margin-bottom: 0.3rem;
     }
@@ -2084,6 +2124,47 @@ body.nav-open {
 }
 
 
+/* ====== SHORT VIEWPORTS (a phone turned sideways, or a short browser
+   window) ====== */
+/* The hero section is deliberately "height: 100dvh" (fills the screen),
+   with its text centered on top using "position: absolute" — see the
+   "HERO SECTION" part of this file, near the top. That centering doesn't
+   take the text's own height into account, so on a normal tall phone
+   screen there's always room and it just works. But turn the phone
+   sideways (or shrink a laptop window's height), and 100dvh can end up
+   shorter than the kicker + heading + paragraph + button all stacked
+   together — and because that text is "position: absolute", it does not
+   push the section taller to make room for itself the way normal content
+   would; it just overflows off the top and bottom instead.
+
+   The real fix would be a different, more involved layout for the hero.
+   This is the smaller, safer fix: below a certain screen height, drop the
+   least essential lines (the kicker, then the paragraph) so what is left
+   — the heading and the button — comfortably fits instead. This applies
+   to the closing "stay" section too, since it reuses these same classes. */
+@media (max-height: 500px) {
+
+    .hero-kicker {
+        display: none;
+    }
+
+    .hero-text .hero-paragraph,
+    .hero-text>p {
+        display: none;
+    }
+
+    .hero-text h1,
+    .hero-text h2 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        margin: 0;
+    }
+
+    .hero-text .explore-btn {
+        margin-top: 0.75rem;
+    }
+}
+
+
 /* ====== REDUCED MOTION ====== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2095,5 +2176,523 @@ body.nav-open {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+
+/* =========================================================
+   GALLERY SECTION
+   "Tak, in pictures" — added after Facilities
+   ========================================================= */
+
+.gallery-section {
+    background-color: var(--sand);
+}
+
+/* Left-aligned and full width, same as the text above every other
+   section (Facilities' "Around the Hotel", Events' "The Grand
+   Ballroom"...). This used to be centered in a narrow box, which made
+   it stick out from the rest of the page instead of matching it. */
+.gallery-text {
+    margin: 0 0 3rem;
+}
+
+/* .gallery-kicker itself is styled up in the shared "KICKERS" block near
+   the top of this file, alongside every other section's kicker — that's
+   what keeps its look (size, spacing, color) matching the rest of the
+   site instead of drifting out of sync. */
+
+.gallery-intro {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Mobile: two columns already, so the gallery doesn't turn into
+   one giant strip of stacked photos on a phone. The opener and
+   closer photos still span both columns for a hero-style break. */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery-grid [data-span] {
+    grid-column: span 2;
+}
+
+.gallery-tile {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+
+.gallery-tile img {
+    transition: transform .3s ease;
+
+}
+
+.gallery-tile figure {
+    margin: 0;
+}
+
+/* No card here on purpose: the photo edge sits right on the cream background */
+.gallery-tile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: var(--sand);
+}
+
+.gallery-tile figcaption {
+    margin-top: 14px;
+    max-width: 46ch;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+}
+
+.gallery-tile:focus-visible img {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+@media (hover: hover) {
+    .gallery-tile:hover img {
+        transform: scale(1.01);
+    }
+}
+
+/* Tablet: still two columns, just with more breathing room. */
+@media (min-width: 641px) {
+    .gallery-grid {
+        gap: 20px;
+    }
+}
+
+/* Desktop: three columns. The opener and closer each become a 2x2 block.
+
+   The row number below ("row: 5 / 7") is not something CSS can work out
+   on its own — it only comes out gapless for an exact number of photos.
+   With a 2x2 opener, a 2x2 closer, and photos filling 3 columns each
+   row, the numbers only tile perfectly (no empty cell left over) when
+   opener(4) + closer(4) + middle photos is a multiple of 3. This
+   ".gallery-grid" rule (shared by every page that has a photo gallery)
+   is tuned for index.html's 12-photo gallery: 4 + 4 + 10 = 18, which is
+   exactly 6 full rows. Below it, ".festival-gallery" has the same idea
+   worked out separately for loykrathong.html's 14-photo gallery instead
+   — that count doesn't divide evenly (4 + 4 + 12 = 20, which needs a
+   7th row with one empty cell left over at the very end), so it needed
+   its own row number rather than reusing this one.
+
+   The earlier version of this rule tried to make the closer's position
+   work itself out automatically ("grid-row: span 2") so it would never
+   need retuning. That's what caused the bug this comment is now
+   documenting: with two *different* photo counts sharing one rule, the
+   automatic version came out gapless for neither page — it left two
+   empty cells in the middle of the grid on both of them. Splitting the
+   rule in two, one hardcoded number per page, fixed both. If more
+   photos are added to either gallery, the fix is to recount and adjust
+   the row number for that specific page's class below. */
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .gallery-grid [data-span="opener"] {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+
+    .gallery-grid [data-span="closer"] {
+        grid-column: 2 / 4;
+        grid-row: 5 / 7;
+    }
+
+    /* loykrathong.html / loykrathong-th.html only — see the big comment
+       above. Worked out for exactly 14 photos (2 + 12 + 2 flowing into a
+       7th row with one empty cell trailing at the very end, bottom-right,
+       rather than a gap in the middle of the grid). */
+    .gallery-grid.festival-gallery [data-span="closer"] {
+        grid-column: 2 / 4;
+        grid-row: 5 / 7;
+    }
+}
+
+
+/* --- Gallery lightbox dialog --- */
+
+.gallery-modal {
+    position: relative;
+    border: none;
+    padding: 0;
+    max-width: min(92vw, 1100px);
+    /* Browsers give <dialog> a built-in "overflow: auto", which is what was
+       making the whole popup scroll when the photo + caption were taller
+       than the screen. Capping the height and turning that off means the
+       photo just shrinks to fit instead of needing a scrollbar. */
+    max-height: 90vh;
+    overflow: visible;
+    background-color: transparent;
+}
+
+.gallery-modal::backdrop {
+    background: rgb(0 0 0 / 0.85);
+}
+
+.gallery-modal img {
+    display: block;
+    max-width: 100%;
+    /* Left smaller than the dialog's own 90vh cap on purpose, so there's
+       always room left over for the caption text underneath. */
+    max-height: 70vh;
+    margin: 0 auto;
+}
+
+.gallery-modal-caption {
+    margin: 1rem 0 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: var(--white);
+}
+
+/* Filled in by gallery.js with something like "3 / 14" — see the
+   "openPhoto" function in that file. Only present on pages with more
+   than a handful of gallery photos (the loykrathong pages); left out of
+   index.html's dialog, where gallery.js simply skips setting it because
+   the element it looks for isn't there. */
+.gallery-modal-counter {
+    margin: 0.35rem 0 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    /* Deliberately dimmer than ".gallery-modal-caption" above (plain
+       white) — this is a secondary detail, not the caption itself. */
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* These three buttons used to sit outside the photo, pushed off with a
+   negative offset + translate. That had room to breathe on a wide desktop
+   window, but on a phone the popup is nearly the full screen width, so the
+   buttons landed completely off the edge of the screen — invisible and
+   unreachable. Sitting them on top of the photo instead (with a dark
+   circle behind them so they show up against any picture) works at every
+   screen size. */
+.gallery-modal-close,
+.gallery-modal-prev,
+.gallery-modal-next {
+    background-color: rgb(0 0 0 / 0.45);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.gallery-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+}
+
+/* "position: fixed" here (instead of "absolute") anchors these two to the
+   screen itself rather than to the popup box. The popup box resizes to
+   fit each photo — a tall portrait photo makes a taller box — so an
+   "absolute" 50% would land at a different height every time. Fixed to
+   the viewport, they stay put no matter what size photo is showing. */
+.gallery-modal-prev,
+.gallery-modal-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.gallery-modal-prev {
+    left: 0.75rem;
+}
+
+.gallery-modal-next {
+    right: 0.75rem;
+}
+
+@media (hover: hover) {
+
+    .gallery-modal-close:hover,
+    .gallery-modal-prev:hover,
+    .gallery-modal-next:hover {
+        background-color: rgb(0 0 0 / 0.7);
+        color: var(--gold);
+    }
+}
+
+
+/* =========================================================
+   LOY KRATHONG SAI STORY PAGE
+   Used by loykrathong.html and loykrathong-th.html only.
+   Tells the story of the festival, then ends with a quiet
+   link back to index.html#rooms — no loud "BOOK NOW" banner,
+   just a photo of the bridge seen from one of our rooms.
+
+   Written mobile-first: every rule below applies to phones
+   first. The @media blocks near the bottom of each part are
+   what changes on a wider tablet or desktop screen.
+   ========================================================= */
+
+/* ===== shared kicker for this page =====
+   Same look as the other kickers in the file (uppercase, wide
+   letter-spacing), but kept as its own class instead of being
+   added to that shared list up top. Every other kicker there is
+   tied to one specific section; this one is reused across three
+   different sections below (legend, craft, today), so giving it
+   its own name is easier to follow. */
+
+.story-kicker {
+    margin: 0;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+/* The rule above works as-is for the "today" section's kicker (its <p>
+   sits directly in .container, so nothing else touches it) and gold
+   reads fine there because that section has a dark background.
+
+   But in the legend and craft sections, this same <p class="story-kicker">
+   sits inside ".story-body", and ".story-body p" (a class plus an element,
+   further down this file) is more specific than ".story-kicker" alone —
+   so it was winning and silently turning the kicker back into plain body
+   text (wrong color, wrong weight, wrong margin), on both of those
+   sections. This rule targets that exact situation — a <p class=
+   "story-kicker"> inside ".story-body" — so it wins instead, restoring
+   the kicker look. It uses deep green rather than gold: on the legend and
+   craft sections' pale cream background, gold text fails accessibility
+   contrast guidelines, where deep green passes comfortably (the same
+   green used by every other kicker on a light background across this
+   site, like ".welcome-kicker" and ".room-kicker"). */
+.story-body p.story-kicker {
+    margin: 0;
+    color: var(--deep-green);
+    font-weight: 500;
+}
+
+
+/* ===== "The Legend" and "How it's made" rows =====
+   One photo, one block of text, same idea as the ".zag" rows
+   in the breakfast section further up this file. Built as a
+   separate component instead of reusing ".zag" because
+   ".zag-body h3" and ".zag-body p" are colored white and cream
+   in this file — made for the dark breakfast section. Putting
+   pale text on this page's pale cream background would make it
+   unreadable, so this gets its own text colors instead. */
+
+.legend-section {
+    background-color: var(--cream);
+}
+
+.craft-section {
+    background-color: var(--white);
+}
+
+.story-row {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+}
+
+.story-media img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.story-body p {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 1rem 0 0;
+}
+
+/* Mobile: photo stacks on top of the text (that is just the
+   normal top-to-bottom order of a single-column grid, so no
+   extra CSS is needed for it). Tablet and up: photo and text
+   sit side by side, like the ".zag" rows. */
+@media (min-width: 768px) {
+
+    .story-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+    }
+
+    /* add class "reverse" to a .story-row to put the photo on
+       the right instead of the left */
+    .story-row.reverse .story-media {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .story-row.reverse .story-body {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+
+/* ===== "The festival today" section =====
+   Dark background, same idea as ".dining-section" further up
+   this file — reused as its own class here (rather than
+   literally putting class="dining-section" on a non-dining
+   section, which would be confusing to read later). */
+
+.today-section {
+    background-color: var(--teal-deep);
+    color: #f9f9f6;
+}
+
+.today-section h2 {
+    color: var(--white);
+}
+
+.today-section .today-intro {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--cream);
+    max-width: 42rem;
+    margin-top: 1rem;
+}
+
+.fact-grid {
+    list-style: none;
+    margin: 3rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.fact-grid svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    stroke-width: 1.5;
+}
+
+.fact-grid h3 {
+    font-family: var(--font-heading);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem;
+}
+
+.fact-grid p {
+    font-family: var(--font-body);
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* The "when" and "where" cards each link out (to a page with this year's
+   exact dates, and to the map) — gold makes them stand out from the
+   surrounding cream text, the same way links stand out elsewhere on
+   this site. */
+.fact-grid a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Mobile: one card per row. Small tablet: two per row.
+   Desktop: all four fit in a single row. */
+@media (min-width: 640px) {
+    .fact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fact-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* ===== closing "stay" section =====
+   This reuses the hero section's classes (".hero-section",
+   ".hero-img", ".hero-overlay", ".hero-text", ".hero-kicker",
+   ".explore-btn") for the full-bleed photo, the dark gradient
+   over it, and the button — see the "HERO SECTION" part of
+   this file, near the top. A shorter height, a darker overlay,
+   and an <h2> and <p> instead of an <h1> are added here. */
+
+.stay-section {
+    height: 70vh;
+    min-height: 420px;
+}
+
+/* The real hero photo (the festival at night) is already dark, so
+   ".hero-overlay" only needs to fade in a shadow near the bottom, where
+   its text sits. This section's room photo is much brighter — mostly
+   white ceiling and walls — so that same overlay left the kicker, the
+   heading and the paragraph almost unreadable. This override swaps it
+   for a gradient that is never fully transparent, so there is always
+   enough of a dark layer behind the text to read it, on any photo. */
+.stay-section .hero-overlay {
+    background: linear-gradient(180deg,
+            rgba(18, 33, 36, 0.55) 0%,
+            rgba(18, 33, 36, 0.6) 40%,
+            rgba(18, 33, 36, 0.8) 100%);
+}
+
+.stay-section .hero-text h2 {
+    color: var(--white);
+    font-weight: 700;
+    text-shadow: 0 0 1px black;
+    font-size: clamp(1.8rem, 5vw, 2.75rem);
+    margin: 0;
+}
+
+.stay-section .hero-text p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-shadow: 0 0 1px black;
+    line-height: 1.7;
+    width: 90%;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .stay-section .hero-text p {
+        font-size: 1.1rem;
     }
 }
