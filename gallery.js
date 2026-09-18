@@ -155,7 +155,25 @@ function openPhoto(index) {
         galleryModalCounter.textContent = photoNumber + " / " + totalPhotos;
     }
 
-    galleryModal.showModal();
+    // iOS Safari has a bug with <dialog>: if the photo is still downloading
+    // when showModal() runs, the dialog's box gets stuck at whatever size
+    // it had before and never resizes to fit the photo once it arrives —
+    // so the photo just never appears (the arrow buttons still show up
+    // fine because they're pinned to the screen with "position: fixed"
+    // instead of sitting inside that box). decode() waits for the photo to
+    // be fully downloaded AND ready to paint before the dialog opens, so
+    // the browser already knows the right size on the very first frame and
+    // never needs to resize the box at all.
+    galleryModalImg
+        .decode()
+        .catch(function () {
+            // A broken image link would land here. Opening the dialog
+            // anyway still shows the caption and lets the person move on
+            // with Next/Previous, instead of the click doing nothing.
+        })
+        .finally(function () {
+            galleryModal.showModal();
+        });
 }
 
 function showPreviousPhoto() {
