@@ -2227,6 +2227,21 @@ body.nav-open {
 
 .gallery-tile {
     display: block;
+    /* This tile used to be an <a href="#gallery-1"> link, styled to not
+       look like one (no underline, inherited color). It's now a <button>
+       instead, so iOS Safari's preventDefault()-on-a-hash-link bug can't
+       make it jump to a fragment instead of opening the lightbox (see
+       gallery.js). Buttons come with their own default look — a border,
+       a background, system font, extra padding, centered text — none of
+       which this tile had before, so all of that gets reset back to
+       "plain" here, the same way the old <a> reset was already doing. */
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    text-align: left;
     color: inherit;
     text-decoration: none;
     cursor: zoom-in;
