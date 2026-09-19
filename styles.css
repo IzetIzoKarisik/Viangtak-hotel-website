@@ -1438,6 +1438,204 @@ body.nav-open {
     mask: url('assets/check.svg') no-repeat center / contain;
 }
 
+/* ------- capacity table ------- */
+
+/*
+   .capacity-wrap is the part that scrolls, not the table itself.
+   Without a wrapper, a table wider than a phone screen makes the WHOLE page
+   scroll sideways and drags the header and every other section along with it.
+   Putting overflow-x here traps that sideways movement inside this one box.
+*/
+.capacity-wrap {
+    overflow-x: auto;
+
+    /*
+       iOS Safari needs this for a box with its own overflow to get the same
+       momentum flick-scroll the rest of the page has. Without it the table
+       stops dead the moment you lift your finger, which feels broken.
+    */
+    -webkit-overflow-scrolling: touch;
+
+    /*
+       The gold :focus-visible ring is drawn just outside this box. A little
+       room underneath stops that ring from sitting directly on top of the
+       table's own bottom hairline and reading as a rendering glitch.
+    */
+    padding-bottom: 0.25rem;
+}
+
+.capacity-table {
+    /*
+       border-collapse: collapse merges each pair of touching cell borders into
+       a single line. With the default value every divider is drawn twice, once
+       by the cell above and once by the cell below, so it looks twice as heavy.
+    */
+    border-collapse: collapse;
+
+    width: 100%;
+
+    /*
+       A floor the table will not shrink past. 20rem is about 320px, roughly the
+       narrowest phone still in use. Wider than that and the table simply fills
+       the container; narrower and .capacity-wrap starts scrolling instead of
+       crushing the columns into something unreadable.
+    */
+    min-width: 20rem;
+
+    font-family: var(--font-body);
+    color: var(--ink);
+
+    /*
+       clamp() handles the whole size range on its own, so this table needs no
+       media query: 0.82rem on a small phone, growing with the viewport, and
+       never past 0.95rem on a desktop.
+    */
+    font-size: clamp(0.82rem, 2.1vw, 0.95rem);
+}
+
+.capacity-table caption {
+    /*
+       caption-side: top places this line above the table, where it reads as a
+       lead-in. It is also the table's accessible name, because the wrapper
+       points at it with aria-labelledby, so it has to stay on the page.
+       Hiding it with display: none would take that name away too.
+    */
+    caption-side: top;
+    text-align: left;
+
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 34rem;
+    margin-bottom: 1.25rem;
+}
+
+/* The empty top-left corner cell. It only holds the grid together. */
+.capacity-corner {
+    border-bottom: 2px solid rgba(28, 43, 45, 0.35);
+}
+
+/* Room names across the top. */
+.capacity-table thead th {
+    font-family: var(--font-heading);
+    font-weight: 500;
+
+    /*
+       em, not rem, so this stays tied to the table's own clamped font-size and
+       scales with it instead of sitting at one fixed size.
+    */
+    font-size: 1.05em;
+
+    color: var(--ink);
+    text-align: center;
+
+    /*
+       The side padding shrinks on small screens. At full 0.5rem the English
+       table is about 10px too wide for a 375px phone, which leaves the wrapper
+       with a stubby little sideways scroll for no good reason. Clamping buys
+       back roughly 25px there and still reaches the full 0.5rem on desktop.
+    */
+    padding: 0 clamp(0.3rem, 1.3vw, 0.5rem) 0.75rem;
+
+    /* A heavier rule under the head separates it from the numbers below. */
+    border-bottom: 2px solid rgba(28, 43, 45, 0.35);
+
+    /* Keeps short and wrapped room names sitting on the same baseline. */
+    vertical-align: bottom;
+
+    /*
+       A width hint, not a rule. In an auto-layout table the browser treats a
+       percentage as "aim for this, but never below what the content needs", so
+       the four room columns come out even instead of Chomphon hogging space
+       just because its name happens not to wrap. The leftover goes to the
+       layout-name column on the left.
+    */
+    width: 21%;
+}
+
+/* Layout names down the left. */
+.capacity-table tbody th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--ink);
+    padding: 0.85rem clamp(0.45rem, 1.8vw, 0.75rem) 0.85rem 0;
+    border-bottom: 1px solid rgba(28, 43, 45, 0.18);
+
+    /*
+       Without this, "Gala dinner" breaks over two lines on a phone and makes
+       that one row twice as tall as its neighbours. Letting the wrapper scroll
+       instead is the smaller sacrifice.
+    */
+    white-space: nowrap;
+}
+
+/* The numbers. */
+.capacity-table tbody td {
+    text-align: center;
+    padding: 0.85rem clamp(0.3rem, 1.3vw, 0.5rem);
+    border-bottom: 1px solid rgba(28, 43, 45, 0.18);
+
+    /*
+       tabular-nums gives every digit the same width, so 400 / 300 / 150 stack
+       into a tidy column instead of drifting left and right row by row.
+    */
+    font-variant-numeric: tabular-nums;
+}
+
+/*
+   A very light warm tint on alternate rows. Tracking a number across five
+   columns is exactly where the eye slips a line, and striping is the cheapest
+   fix. nth-child counts the rows inside tbody only, so the head stays out of
+   the pattern.
+*/
+.capacity-table tbody tr:nth-child(odd) th,
+.capacity-table tbody tr:nth-child(odd) td {
+    background-color: rgba(28, 43, 45, 0.035);
+}
+
+/* No hairline under the final row, so the table ends cleanly. */
+.capacity-table tbody tr:last-child th,
+.capacity-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ------- "included" note under the table ------- */
+
+.event-includes-label {
+    margin: 2.5rem 0 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+/*
+   This list used to be a section of its own under a "What's included" heading.
+   It now sits beneath the capacity table as a supporting note, so it is set
+   smaller and packed tighter. The modifier only changes size and spacing; the
+   green check marks still come from .included-list above.
+*/
+.included-list--compact {
+    margin-top: 1rem;
+    gap: 0.6rem 1.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.included-list--compact li {
+    font-size: 0.9rem;
+}
+
+.included-list--compact li::before {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+
 .event-cta {
     margin-top: 3.5rem;
     padding-top: 2rem;

@@ -180,7 +180,7 @@
                                 <p class="room-price">฿1,500<span>/ คืน</span></p>
                                 <a class="room-btn" href="reservation-th.html?room=deluxe-room">จองเลย</a>
                             </div>
-                        </div>
+                        </div> 
 
                     </article>
 
@@ -597,15 +597,108 @@
                         </li>
                     </ul>
 
-                    <h3 class="event-subhead">What's included</h3>
+                    <h3 class="event-subhead">ความจุห้องตามรูปแบบการจัดงาน</h3>
 
-                    <ul class="included-list">
+                    <!--
+                        The table lives inside a scrolling box. On a narrow phone a wide
+                        table would otherwise stretch the whole page and make the entire
+                        site slide sideways, header and all. overflow-x on this wrapper
+                        keeps that movement inside the box.
+                          role="region" + aria-labelledby   give the box a name so a screen
+                                                            reader announces it as its own area
+                          tabindex="0"                      puts the box in the tab order, which
+                                                            is what lets a keyboard scroll it
+                    -->
+                    <div class="capacity-wrap" role="region" aria-labelledby="capacity-caption" tabindex="0">
+                        <table class="capacity-table">
+                            <caption id="capacity-caption">
+                                จำนวนแขกสูงสุดที่แต่ละห้องรองรับได้ ขึ้นอยู่กับรูปแบบการจัดห้อง
+                            </caption>
+
+                            <thead>
+                                <tr>
+                                    <!--
+                                        The top-left corner is empty because it is not a heading
+                                        for anything, so it stays a plain td. Making it a th would
+                                        have a screen reader announce an empty heading.
+                                    -->
+                                    <td class="capacity-corner"></td>
+                                    <th scope="col">เวียงปิง</th>
+                                    <th scope="col">เวียงวัง</th>
+                                    <th scope="col">จอมพล</th>
+                                    <th scope="col">เชียงทอง</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!--
+                                    Each row opens with th scope="row". That pairing, scope="col"
+                                    up in the head and scope="row" here, is what makes a screen
+                                    reader read a lone number as "Viang Ping, Theatre, 400"
+                                    instead of reading out a bare "400".
+                                -->
+                                <tr>
+                                    <th scope="row">เธียเตอร์</th>
+                                    <td>400</td>
+                                    <td>300</td>
+                                    <td>150</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ห้องเรียน</th>
+                                    <td>200</td>
+                                    <td>120</td>
+                                    <td>80</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ตัวยู</th>
+                                    <td>150</td>
+                                    <td>100</td>
+                                    <td>70</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">บอร์ดรูม</th>
+                                    <td>100</td>
+                                    <td>70</td>
+                                    <td>50</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ค็อกเทล</th>
+                                    <td>300</td>
+                                    <td>200</td>
+                                    <td>120</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">บุฟเฟต์</th>
+                                    <td>250</td>
+                                    <td>150</td>
+                                    <td>100</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">กาล่าดินเนอร์</th>
+                                    <td>180</td>
+                                    <td>100</td>
+                                    <td>80</td>
+                                    <td>30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="event-includes-label">ทุกการจัดงานรวมสิ่งเหล่านี้แล้ว</p>
+
+                    <ul class="included-list included-list--compact">
                         <li>อาหารจากครัวโรงแรม ทั้งชุดไทย บุฟเฟต์ และเบรกกาแฟ</li>
-                        <li>โสตทัศนูปกรณ์ครบครัน ทั้งโปรเจกเตอร์ จอ ไมค์ และเครื่องเสียง</li>
-                        <li>เวที ฉากหลัง และดอกไม้ จัดตามความต้องการ</li>
-                        <li>โต๊ะ เก้าอี้ ผ้าปู จัดตามผังที่วางไว้</li>
+                        <li>โปรเจกเตอร์ จอ ไมค์ และเครื่องเสียง</li>
+                        <li>เวที ฉากหลัง และดอกไม้</li>
+                        <li>โต๊ะ เก้าอี้ ผ้าปู จัดตามผัง</li>
                         <li>ที่จอดรถฟรีสำหรับแขก</li>
-                        <li>ห้องพักสำหรับแขกร่วมงานในราคาพิเศษ</li>
+                        <li>ห้องพักราคาพิเศษสำหรับแขกร่วมงาน</li>
                     </ul>
 
                     <div class="event-cta">

@@ -614,15 +614,108 @@
                         </li>
                     </ul>
 
-                    <h3 class="event-subhead">What's included</h3>
+                    <h3 class="event-subhead">Capacity by layout</h3>
 
-                    <ul class="included-list">
-                        <li>Catering from the hotel kitchen — Thai set menus, buffets and coffee breaks</li>
+                    <!--
+                        The table lives inside a scrolling box. On a narrow phone a wide
+                        table would otherwise stretch the whole page and make the entire
+                        site slide sideways, header and all. overflow-x on this wrapper
+                        keeps that movement inside the box.
+                          role="region" + aria-labelledby   give the box a name so a screen
+                                                            reader announces it as its own area
+                          tabindex="0"                      puts the box in the tab order, which
+                                                            is what lets a keyboard scroll it
+                    -->
+                    <div class="capacity-wrap" role="region" aria-labelledby="capacity-caption" tabindex="0">
+                        <table class="capacity-table">
+                            <caption id="capacity-caption">
+                                The most guests each room holds, depending on how we set it up.
+                            </caption>
+
+                            <thead>
+                                <tr>
+                                    <!--
+                                        The top-left corner is empty because it is not a heading
+                                        for anything, so it stays a plain td. Making it a th would
+                                        have a screen reader announce an empty heading.
+                                    -->
+                                    <td class="capacity-corner"></td>
+                                    <th scope="col">Viang Ping</th>
+                                    <th scope="col">Viang Wang</th>
+                                    <th scope="col">Chomphon</th>
+                                    <th scope="col">Chiang Thong</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!--
+                                    Each row opens with th scope="row". That pairing, scope="col"
+                                    up in the head and scope="row" here, is what makes a screen
+                                    reader read a lone number as "Viang Ping, Theatre, 400"
+                                    instead of reading out a bare "400".
+                                -->
+                                <tr>
+                                    <th scope="row">Theatre</th>
+                                    <td>400</td>
+                                    <td>300</td>
+                                    <td>150</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Classroom</th>
+                                    <td>200</td>
+                                    <td>120</td>
+                                    <td>80</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">U-shape</th>
+                                    <td>150</td>
+                                    <td>100</td>
+                                    <td>70</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Boardroom</th>
+                                    <td>100</td>
+                                    <td>70</td>
+                                    <td>50</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cocktail</th>
+                                    <td>300</td>
+                                    <td>200</td>
+                                    <td>120</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Buffet</th>
+                                    <td>250</td>
+                                    <td>150</td>
+                                    <td>100</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Gala dinner</th>
+                                    <td>180</td>
+                                    <td>100</td>
+                                    <td>80</td>
+                                    <td>30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="event-includes-label">Included with every booking</p>
+
+                    <ul class="included-list included-list--compact">
+                        <li>Catering — Thai set menus, buffets and coffee breaks</li>
                         <li>Projector, screen, microphones and sound</li>
-                        <li>Stage, backdrop and flowers arranged with you</li>
-                        <li>Tables, chairs and linen set to your plan</li>
+                        <li>Stage, backdrop and flowers</li>
+                        <li>Tables, chairs and linen to your plan</li>
                         <li>Free parking for your guests</li>
-                        <li>Guest rooms at event rates for anyone staying over</li>
+                        <li>Guest rooms at event rates</li>
                     </ul>
 
                     <div class="event-cta">
