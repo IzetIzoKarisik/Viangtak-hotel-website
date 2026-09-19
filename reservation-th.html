@@ -94,34 +94,84 @@
                 <p class="form-kicker">1 &bullet; เลือกห้องพัก</p>
 
                 <ul class="room-options">
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-deluxe-room" name="room" value="Deluxe Room"
-                                class="visually-hidden" data-rate="1500" data-max="2" required>
+                                class="visually-hidden" data-rate="1500" data-rate-no-breakfast="1100" data-max="2"
+                                required>
                             <span class="room-name">ห้องดีลักซ์</span>
-                            <span class="room-price">฿1,500<span> / คืน</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿1,500</span><span
+                                    class="room-price-suffix"> / คืน</span></span>
                             <span class="room-detail">36 ตร.ม. · เตียงเดี่ยว 2 เตียง</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-deluxe-room"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>รวมอาหารเช้า</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-deluxe-room"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>ไม่รวมอาหารเช้า</span>
+                            </label>
+                        </div>
                     </li>
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-corner-suite" name="room" value="Corner Suite"
-                                class="visually-hidden" data-rate="1600" data-max="2" required>
+                                class="visually-hidden" data-rate="1600" data-rate-no-breakfast="1200" data-max="2"
+                                required>
                             <span class="room-name">ห้องคอร์เนอร์สวีท</span>
-                            <span class="room-price">฿1,600<span> / คืน</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿1,600</span><span
+                                    class="room-price-suffix"> / คืน</span></span>
                             <span class="room-detail">45 ตร.ม. · เตียงคิงไซซ์</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-corner-suite"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>รวมอาหารเช้า</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-corner-suite"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>ไม่รวมอาหารเช้า</span>
+                            </label>
+                        </div>
                     </li>
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-family-suite" name="room" value="Family Suite"
-                                class="visually-hidden" data-rate="2300" data-max="4" required>
+                                class="visually-hidden" data-rate="2300" data-rate-no-breakfast="1600" data-max="4"
+                                required>
                             <span class="room-name">ห้องแฟมิลี่สวีท</span>
-                            <span class="room-price">฿2,300<span> / คืน</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿2,300</span><span
+                                    class="room-price-suffix"> / คืน</span></span>
                             <span class="room-detail">2 ห้องนอน · พักได้ 4 ท่าน</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-family-suite"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>รวมอาหารเช้า</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-family-suite"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>ไม่รวมอาหารเช้า</span>
+                            </label>
+                        </div>
                     </li>
                 </ul>
+
+                <!-- แจ้ง Netlify ว่าห้องที่เลือกรวมอาหารเช้าหรือไม่
+                     reservation.js จะอัปเดตค่านี้ให้ตรงกับสวิตช์อาหารเช้า
+                     ของห้องที่เลือกอยู่เสมอ -->
+                <input type="hidden" name="breakfast" id="breakfast-field" value="Yes">
 
                 <!-- ===== ผู้เข้าพัก ===== -->
                 <div class="guests-select-sec">

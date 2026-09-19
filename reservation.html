@@ -69,34 +69,84 @@
                 <p class="form-kicker">1 &bullet; your room</p>
 
                 <ul class="room-options">
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-deluxe-room" name="room" value="Deluxe Room"
-                                class="visually-hidden" data-rate="1500" data-max="2" required>
+                                class="visually-hidden" data-rate="1500" data-rate-no-breakfast="1100" data-max="2"
+                                required>
                             <span class="room-name">Deluxe Room</span>
-                            <span class="room-price">฿1,500<span> / night</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿1,500</span><span
+                                    class="room-price-suffix"> / night</span></span>
                             <span class="room-detail">36 m² · two singles</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-deluxe-room"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>Breakfast included</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-deluxe-room"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>Room only</span>
+                            </label>
+                        </div>
                     </li>
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-corner-suite" name="room" value="Corner Suite"
-                                class="visually-hidden" data-rate="1600" data-max="2" required>
+                                class="visually-hidden" data-rate="1600" data-rate-no-breakfast="1200" data-max="2"
+                                required>
                             <span class="room-name">Corner Suite</span>
-                            <span class="room-price">฿1,600<span> / night</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿1,600</span><span
+                                    class="room-price-suffix"> / night</span></span>
                             <span class="room-detail">45 m² · king bed</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-corner-suite"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>Breakfast included</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-corner-suite"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>Room only</span>
+                            </label>
+                        </div>
                     </li>
-                    <li>
-                        <label class="room-option">
+                    <li class="room-option">
+                        <label class="room-choice">
                             <input type="radio" id="room-family-suite" name="room" value="Family Suite"
-                                class="visually-hidden" data-rate="2300" data-max="4" required>
+                                class="visually-hidden" data-rate="2300" data-rate-no-breakfast="1600" data-max="4"
+                                required>
                             <span class="room-name">Family Suite</span>
-                            <span class="room-price">฿2,300<span> / night</span></span>
+                            <span class="room-price"><span class="room-price-amount">฿2,300</span><span
+                                    class="room-price-suffix"> / night</span></span>
                             <span class="room-detail">2 bedrooms · up to 4</span>
                         </label>
+
+                        <div class="breakfast-options">
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-family-suite"
+                                    class="breakfast-radio visually-hidden" value="yes" checked>
+                                <span>Breakfast included</span>
+                            </label>
+                            <label class="breakfast-pill">
+                                <input type="radio" name="breakfast-family-suite"
+                                    class="breakfast-radio visually-hidden" value="no">
+                                <span>Room only</span>
+                            </label>
+                        </div>
                     </li>
                 </ul>
+
+                <!-- Tells Netlify whether the room the guest picked includes
+                     breakfast. reservation.js keeps this in sync with that
+                     room's breakfast toggle, above. -->
+                <input type="hidden" name="breakfast" id="breakfast-field" value="Yes">
 
                 <!-- ===== GUESTS ===== -->
                 <div class="guests-select-sec">
