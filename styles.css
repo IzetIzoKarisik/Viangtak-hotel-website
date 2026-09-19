@@ -137,7 +137,7 @@ html {
     gap: 1.5rem;
 }
 
-#reserve-page .form-container ul .room-price .room-price-suffix {
+#reserve-page .form-container ul .room-price span {
     font-family: var(--font-body);
     font-weight: 300;
     font-size: .8rem;
@@ -223,37 +223,18 @@ html {
 
 /* ======= Reservation — room options ======= */
 
-/* The card itself. This used to be the same element as the clickable
-   room details (the <label>), but the breakfast pills below needed their
-   own separate clickable label — two labels can't be nested inside each
-   other — so the card's look (border, background) now lives on the <li>,
-   and .room-choice below is the label that picks the room.
-
-   IMPORTANT: the padding belongs to .room-choice, NOT to this card, and
-   .room-choice uses flex: 1 to fill whatever height is left over. That is
-   what keeps the WHOLE card a tap target for choosing the room. If the
-   padding moves up here instead, the label shrinks to just its text and
-   most of the card goes dead — on a phone the guest taps the card, sees
-   nothing happen, and can't book. */
 .room-option {
     position: relative;
     display: flex;
     flex-direction: column;
+    gap: .5rem;
     height: 100%;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem;
     border: 2px solid rgba(28, 43, 45, 0.15);
     border-radius: 20px;
     background-color: var(--cream);
-    transition: border-color .3s ease, background-color .3s ease, transform .3s ease;
-}
-
-.room-choice {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    padding: 1.5rem 1.5rem .75rem;
     cursor: pointer;
+    transition: border-color .3s ease, background-color .3s ease, transform .3s ease;
 }
 
 .room-option .room-name {
@@ -271,7 +252,7 @@ html {
     color: var(--ink-soft);
 }
 
-.room-option .room-price .room-price-suffix {
+.room-option .room-price span {
     font-family: var(--font-body);
     font-weight: 300;
     font-size: .8rem;
@@ -285,19 +266,14 @@ html {
     color: var(--ink-soft);
 }
 
-/* Selected state — the radio drives it, no JS needed.
-
-   Match on name="room", NOT on input type. The breakfast pills in this same
-   card are radios too, and one of them is always checked, so matching any
-   checked radio would light up every card at once and the guest could not
-   see which room they had picked. */
-.room-option:has(input[name="room"]:checked) {
+/* selected state — the radio drives it, no JS needed */
+.room-option:has(input:checked) {
     border-color: var(--deep-green);
     background-color: #eefaf3;
 }
 
 /* focus lands on the hidden radio, so show the ring on the card */
-.room-option:has(input[name="room"]:focus-visible) {
+.room-option:has(input:focus-visible) {
     outline: 2px solid var(--gold);
     outline-offset: 3px;
 }
@@ -306,52 +282,6 @@ html {
     .room-option:hover {
         transform: translateY(-3px);
     }
-}
-
-/* ======= Reservation — breakfast choice ======= */
-/* Two small pill buttons inside each room card: "Breakfast included" and
-   "Room only". They're a second, separate radio group per room (its own
-   hidden radio pair, same "visually-hidden but focusable" trick as the
-   room radios above) — picking one always picks the other off, same as
-   any radio group. The highlight on the chosen pill is driven purely by
-   :has(input:checked), no JS needed — only the price number below still
-   needs JS, since CSS can't do that arithmetic. */
-
-.breakfast-options {
-    display: flex;
-    gap: .4rem;
-    padding: 0 1.5rem;
-}
-
-.breakfast-pill {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: .35rem .4rem;
-    border: 1px solid rgba(28, 43, 45, 0.2);
-    border-radius: 999px;
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: .72rem;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: border-color .2s ease, background-color .2s ease, color .2s ease;
-}
-
-/* chosen pill — the radio drives it, no JS needed */
-.breakfast-pill:has(input:checked) {
-    border-color: var(--deep-green);
-    background-color: #eefaf3;
-    color: var(--deep-green);
-    font-weight: 500;
-}
-
-/* focus lands on the hidden radio, so show the ring on the pill */
-.breakfast-pill:has(input:focus-visible) {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
 }
 
 
