@@ -2348,7 +2348,27 @@ body.nav-open {
 /* --- Gallery lightbox dialog --- */
 
 .gallery-modal {
-    position: relative;
+    /* A browser's own built-in stylesheet centres an open modal <dialog>
+       on screen using "position: fixed" together with "top/bottom: 0" and
+       "margin: auto". This rule used to say "position: relative", which
+       overrode that. Newer browsers quietly correct a relative top-layer
+       dialog back into an absolutely positioned box, so it still landed in
+       the right place — but older iOS Safari takes it literally, drops the
+       popup back into the normal page flow, and puts it where the <dialog>
+       tag physically sits in the HTML: right at the bottom of the page,
+       thousands of pixels below the screen. That's why the photo was
+       invisible on iPhone while the dimmed backdrop and the two arrows
+       (which are pinned to the screen with "position: fixed") still showed.
+       Pinning all four sides and letting "margin: auto" do the centring
+       spells out the same result every browser should arrive at, so no
+       browser has to guess. It also still gives the close button, which is
+       positioned against this box, something to anchor itself to. */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
     border: none;
     padding: 0;
     max-width: min(92vw, 1100px);
