@@ -177,6 +177,16 @@ form.addEventListener("submit", function () {
             field.setAttribute("name", field.id);
         }
     });
+
+    // The breakfast pills need a name while the page is open — that is what
+    // groups each room's two pills together so picking one unpicks the
+    // other. But all three rooms' pills would then be sent, and the email
+    // would list a breakfast answer for rooms the guest never booked.
+    // Dropping the names here leaves just the "breakfast" field above,
+    // which already holds the answer for the room actually chosen.
+    breakfastRadios.forEach(function (breakfastRadio) {
+        breakfastRadio.removeAttribute("name");
+    });
 });
 
 // ===== Give every reservation email a different subject line =====
