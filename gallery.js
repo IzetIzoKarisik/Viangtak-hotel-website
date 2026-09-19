@@ -166,30 +166,13 @@ function openPhoto(index) {
     // never needs to resize the box at all.
     galleryModalImg
         .decode()
-        .catch(function (error) {
+        .catch(function () {
             // A broken image link would land here. Opening the dialog
             // anyway still shows the caption and lets the person move on
             // with Next/Previous, instead of the click doing nothing.
-            //
-            // TEMPORARY — while we're tracking down why the photo doesn't
-            // show up on iPhone, print what actually went wrong into the
-            // caption itself, since there's no easy way to plug an iPhone
-            // into a computer and read its console. Remove this once the
-            // real photo is showing up reliably again.
-            galleryModalCaption.textContent =
-                "DEBUG decode() failed: " + error.name + " — " + error.message;
         })
         .finally(function () {
             galleryModal.showModal();
-
-            // TEMPORARY — same debugging purpose as above. If decode()
-            // resolved (no error) but the browser still doesn't actually
-            // have real pixels for this photo, naturalWidth stays 0. This
-            // catches that case too.
-            if (galleryModalImg.naturalWidth === 0) {
-                galleryModalCaption.textContent =
-                    "DEBUG image has no pixels — src: " + galleryModalImg.src;
-            }
         });
 }
 
