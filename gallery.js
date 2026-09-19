@@ -25,30 +25,51 @@ let currentPhotoIndex = 0;
 let scrollPositionBeforeOpen = 0;
 
 
-// ===== Build a simple list of the photos =====
-// One entry per tile, in the same order the tiles appear on the page.
-// This way the lightbox does not need to touch the grid at all.
+// ===== Build one list of photos per gallery =====
+// A page can hold more than one separate set of photos. The loykrathong
+// pages now have two: the row of festival site maps in the kite section,
+// and the big photo gallery further down. Each set needs its own list, or
+// the lightbox's Next/Previous arrows and its "3 / 14" counter would run
+// straight out of one set and into the other — clicking past the last
+// site map would land you in the middle of the krathong photos, counting
+// "4 / 17".
+//
+// A set is whatever element carries data-gallery in the HTML. Pages that
+// don't mark their gallery at all still work: those tiles all fall back
+// to <body>, which puts them in a single set, exactly as before.
 
-const photos = [];
+const photoSets = new Map();
 
 galleryTiles.forEach(function (tile) {
-    const img = tile.querySelector("img");
-    const caption = tile.querySelector("figcaption");
+    const set = tile.closest("[data-gallery]") || document.body;
 
-    photos.push({
-        src: img.src,
-        alt: img.alt,
-        caption: caption.textContent
-    });
+    if (!photoSets.has(set)) {
+        photoSets.set(set, []);
+    }
+
+    const photosInThisSet = photoSets.get(set);
+
+    // Remember where this tile sits inside its own set, so the click
+    // handler below can open the right photo without hunting for it.
+    tile.dataset.photoIndex = photosInThisSet.length;
+
+    photosInThisSet.push(readPhotoFromTile(tile));
 });
+
+// The one set the lightbox is showing right now. Clicking a tile points
+// this at that tile's set first, so everything below this line — the
+// arrows, the counter, the swipe handlers — carries on working with a
+// single flat list of photos exactly the way it always did.
+let photos = [];
 
 
 // ===== Open the lightbox when a tile is clicked =====
 
-galleryTiles.forEach(function (tile, index) {
+galleryTiles.forEach(function (tile) {
     tile.addEventListener("click", function (e) {
         e.preventDefault();
-        openPhoto(index);
+        photos = photoSets.get(tile.closest("[data-gallery]") || document.body);
+        openPhoto(Number(tile.dataset.photoIndex));
     });
 });
 
@@ -128,6 +149,41 @@ galleryModal.addEventListener("touchend", function (e) {
 
 
 // ===== Function definitions =====
+
+// Work out which photo a tile should open in the lightbox.
+//
+// Almost every tile is a photo thumbnail, and the lightbox simply reopens
+// that same <img> — it reads the "src" attribute rather than whichever
+// size the grid happened to display, so the full-size file opens even
+// though the grid showed the small one (see the "srcset" comments in the
+// HTML).
+//
+// The festival site-map buttons on the loykrathong pages are tiles too,
+// but they show a map icon and a label instead of a thumbnail, so there
+// is no <img> inside them to read. Those name their photo on the button
+// itself with data- attributes instead. Keeping the map out of the button
+// this way also means the map file — around half a megabyte, because it
+// is full of small print that has to stay sharp — is only ever downloaded
+// if somebody actually opens it.
+function readPhotoFromTile(tile) {
+    const img = tile.querySelector("img");
+    const caption = tile.querySelector("figcaption");
+
+    if (img) {
+        return {
+            src: img.src,
+            alt: img.alt,
+            caption: caption ? caption.textContent : ""
+        };
+    }
+
+    return {
+        src: tile.dataset.photo,
+        alt: tile.dataset.photoAlt || "",
+        caption: tile.dataset.photoCaption || tile.textContent.trim()
+    };
+}
+
 
 // Show one photo in the lightbox and remember which one it is,
 // so the prev/next buttons know where to go next.

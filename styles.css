@@ -849,7 +849,23 @@ body.nav-open {
     margin-bottom: 1rem;
 }
 
-.hero-text h1 {
+/* ".hero-title" is the Loi Krathong hero's heading, which is an <h2>
+   now that the loykrathong pages carry their <h1> up in the signpost
+   band at the top. Becoming an <h2> meant it started picking up the
+   site-wide "h2" rule near the top of this file, which an <h1> here
+   never did: dark ink, a 35rem max-width and a 1rem top margin. Dark
+   ink on a night photo is very nearly invisible, so the first two
+   lines below put the heading back to exactly what it looked like as
+   an <h1> ("inherit" being the white that ".hero-text" sets, and the
+   "margin: 0" already at the bottom of this rule covering the third).
+
+   All three belong in this shared rule rather than one of their own,
+   because they change nothing at all for an <h1> — there is no
+   site-wide h1 rule for them to undo. */
+.hero-text h1,
+.hero-text .hero-title {
+    color: inherit;
+    max-width: none;
     font-weight: 700;
     text-shadow: 0 0 1px black;
     font-size: clamp(2.1rem, 7vw, 4rem);
@@ -1926,7 +1942,8 @@ body.nav-open {
         max-width: 70vw;
     }
 
-    .hero-text h1 {
+    .hero-text h1,
+    .hero-text .hero-title {
         text-shadow: 0 0 1px black;
         font-weight: 600;
         font-size: clamp(2.1rem, 7vw, 3rem);
@@ -2097,7 +2114,8 @@ body.nav-open {
         max-width: 750px;
     }
 
-    .hero-text h1 {
+    .hero-text h1,
+    .hero-text .hero-title {
         font-size: clamp(2.1rem, 7vw, 4rem);
     }
 
@@ -2729,5 +2747,485 @@ body.nav-open {
 @media (min-width: 768px) {
     .stay-section .hero-text p {
         font-size: 1.1rem;
+    }
+}
+
+/* =========================================================
+   PING RIVERSIDE FESTIVALS — SHARED PAGE HEADER
+   Used by loykrathong.html and loykrathong-th.html only.
+
+   These two pages used to be about one festival, so they
+   opened straight onto its photo. They now cover two — the
+   kite festival at the end of September, and Loi Krathong Sai
+   in November — so a short band goes in above both of them
+   saying what the page is and offering a jump link to each.
+
+   Written mobile-first, like the rest of this file: the rules
+   below are the phone layout, and the @media blocks are what
+   changes on a wider screen.
+   ========================================================= */
+
+.festival-index {
+    background-color: var(--cream);
+}
+
+/* The header bar is "position: fixed", so it floats over the top
+   of the page rather than pushing anything down. Every other page
+   gets away with that because it opens with a full-bleed photo
+   that is meant to run underneath the header — this band is not,
+   so it has to leave room for the header itself.
+
+   Measured in a real browser rather than guessed at: the bar is
+   59px tall on a phone and 71px on a desktop, where the nav links
+   and the Book now button make it taller. 5.75rem (92px) and
+   6.75rem (108px) clear those with about 2rem of air underneath,
+   so the heading looks deliberately placed rather than tucked up
+   against the bar.
+
+   The bottom padding is much smaller than the 4rem the shared
+   ".container" gives, because this band is a signpost rather than
+   a section of its own — the full 4rem left it floating in the
+   middle of an otherwise empty screen. */
+.festival-index .container {
+    padding-top: 5.75rem;
+    padding-bottom: 2.25rem;
+}
+
+@media (min-width: 768px) {
+    .festival-index .container {
+        padding-top: 6.75rem;
+    }
+}
+
+.festival-index h1 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.festival-index-intro {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 44rem;
+    margin: 0.75rem 0 0;
+}
+
+/* The two jump links. A list rather than two loose <a> tags so a
+   screen reader announces "2 items" before reading them out —
+   which is the whole point of the band. */
+.festival-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+}
+
+/* The 0.72rem of vertical padding is not a rounded-off guess. Together
+   with the 0.85rem text and its 1.4 line-height it puts the chip at
+   about 46px tall, just over the 44px minimum that both Apple's and
+   Google's guidelines give for something you tap with a fingertip.
+   Trimming this padding to make the chips look neater is exactly the
+   kind of change that quietly makes them hard to hit on a phone. */
+.festival-chip {
+    display: inline-block;
+    padding: 0.72rem 1.15rem;
+    border: 1px solid rgba(28, 43, 45, 0.18);
+    border-radius: 50px;
+    background-color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Add class "is-current" to whichever festival is the next one
+   coming up, so the eye lands on it first. It moves once a year
+   — see the note at the top of the kite section in the HTML. */
+.festival-chip.is-current {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    /* Deep ink rather than white: gold is a light colour, and white
+       text on it fails the contrast level this site holds to
+       everywhere else. Ink on gold passes comfortably. */
+    color: var(--ink);
+}
+
+@media (hover: hover) {
+    .festival-chip:hover {
+        transform: translateY(-2px);
+        border-color: var(--gold);
+    }
+}
+
+.festival-chip:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   THE KITE FESTIVAL BLOCK
+   Tak International Fancy Kite Festival, late September.
+
+   White background, so it reads as its own block between the
+   cream signpost band above it and the full-bleed Loi Krathong
+   photo below it.
+   ========================================================= */
+
+.kite-section {
+    background-color: var(--white);
+}
+
+/* --- the heading, and the countdown badge above it --- */
+
+/* Filled in by kite-countdown.js on every page load — "in 10 days"
+   before the festival, "on now" during it, "finished for this year"
+   afterwards. Whatever is typed into the HTML is only ever a
+   fallback for a visitor with JavaScript switched off. */
+.kite-countdown {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    background-color: var(--sand);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+}
+
+/* The three states the badge can be in. Only the middle one is
+   loud — the festival being on *right now* is worth a bright
+   badge; a countdown or a closed sign is not. */
+.kite-countdown.is-upcoming {
+    background-color: var(--sand);
+    color: var(--deep-green);
+}
+
+.kite-countdown.is-on-now {
+    background-color: var(--deep-green);
+    color: var(--white);
+}
+
+.kite-countdown.is-over {
+    background-color: var(--sand);
+    color: var(--ink-soft);
+}
+
+.kite-section h2 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4.5vw, 2.25rem);
+    line-height: 1.25;
+    margin: 0;
+}
+
+.kite-meta {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin: 0.6rem 0 0;
+}
+
+
+/* --- "Why stay here" --- */
+/* The one block on this page that is actually about the hotel, so
+   it goes high up and gets the only dark card in the section
+   rather than being left to fend for itself at the bottom. */
+
+.kite-why {
+    background-color: var(--teal-deep);
+    border-radius: 20px;
+    padding: 1.75rem 1.5rem;
+    margin-top: 2.25rem;
+}
+
+.kite-why h3 {
+    font-family: var(--font-heading);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.kite-why-list {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+}
+
+/* Each reason is an icon in the left column and its text in the
+   right one, so the wrapped second line of a long reason lines up
+   under the first line rather than sliding back under the icon. */
+.kite-why-list li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    align-items: start;
+    gap: 0.85rem;
+}
+
+.kite-why-list svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--gold);
+    stroke-width: 1.5;
+    /* Nudges the icon down onto the middle of the first line of
+       text beside it, instead of hanging level with its very top. */
+    margin-top: 0.1rem;
+}
+
+.kite-why-list p {
+    font-family: var(--font-body);
+    color: var(--cream);
+    font-weight: 300;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* The same green pill as the hero buttons elsewhere on the site.
+   It is written out again here rather than reusing ".explore-btn",
+   because that class is only ever styled as ".hero-text
+   .explore-btn" — it does nothing at all outside a hero. */
+.kite-book-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.75rem;
+    /* 1rem top and bottom on 0.85rem text gives a button roughly
+       50px tall. See the note on ".festival-chip" above — this is a
+       fingertip target, and the padding is what makes it one. */
+    padding: 1rem 1.6rem;
+    border-radius: 50px;
+    background-color: var(--green);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.kite-book-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke-width: 2;
+}
+
+@media (hover: hover) {
+    .kite-book-btn:hover {
+        transform: translateY(-3px);
+        background-color: var(--deep-green);
+    }
+}
+
+.kite-book-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* --- shared sub-heading for the blocks further down --- */
+
+.kite-subhead {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--deep-green);
+    margin: 2.75rem 0 1.25rem;
+}
+
+
+/* --- the two zones --- */
+
+.kite-zones {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.kite-zones li {
+    background-color: var(--sand);
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem;
+}
+
+.kite-zones h4 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+}
+
+.kite-zones p {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 300;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+
+/* --- the practical details --- */
+/* Short facts somebody might want to check on their phone while
+   they are standing in the middle of the festival, so they are
+   kept to one line each and set wide rather than deep. */
+
+.kite-facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.kite-facts li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(28, 43, 45, 0.12);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.kite-facts svg {
+    /* flex-shrink: 0 stops a long fact from squashing its icon into
+       an oval as the text pushes back against it. */
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--gold);
+    stroke-width: 1.5;
+}
+
+
+/* --- the site maps --- */
+/* These buttons carry class "gallery-tile" as well, which is what
+   hands them to gallery.js and opens them in the same lightbox as
+   the photo gallery further down the page. That class is written
+   for photo thumbnails, though — a bare, borderless, zoom-cursor
+   block — so everything it strips off is put back here. These
+   rules sit later in the file than ".gallery-tile" does, which is
+   what lets them win. */
+
+.kite-maps {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.kite-map-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    /* 1.1rem top and bottom, again for a comfortable fingertip
+       target — see ".festival-chip". */
+    padding: 1.1rem 1.25rem;
+    border: 1px solid rgba(28, 43, 45, 0.18);
+    border-radius: 14px;
+    background-color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.kite-map-btn svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--gold);
+    stroke-width: 1.5;
+}
+
+@media (hover: hover) {
+    .kite-map-btn:hover {
+        transform: translateY(-2px);
+        border-color: var(--gold);
+        background-color: var(--cream);
+    }
+}
+
+.kite-map-btn:active {
+    transform: scale(0.98);
+}
+
+.kite-credit {
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+    font-weight: 300;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin: 1rem 0 0;
+}
+
+
+/* --- wider screens --- */
+/* Two zone cards side by side from tablet up; the four facts go
+   two-up on a tablet and four-up on a desktop, matching the
+   ".fact-grid" pattern used by the Loi Krathong block below. The
+   maps sit in a row of three as soon as there is room, since each
+   one is only a short label. */
+
+@media (min-width: 640px) {
+
+    .kite-why {
+        padding: 2.25rem 2rem;
+    }
+
+    .kite-zones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .kite-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kite-maps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .kite-facts {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .kite-why-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.75rem;
     }
 }

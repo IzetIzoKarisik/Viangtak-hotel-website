@@ -3,6 +3,19 @@ const primaryNav = document.querySelector(".primary-nav");
 const header = document.querySelector(".hotel-header");
 const body = document.body;
 
+// The header bar is transparent to begin with and only fades in its white
+// background once you scroll — that works because every page it was
+// written for opens with a full-bleed photo for the white lettering to sit
+// on top of.
+//
+// The loykrathong pages no longer do: they open with a pale signpost band
+// naming the two festivals, and white lettering on a fixed transparent bar
+// over a cream background is invisible. Those pages put "solid-header" on
+// their <body>, which pins the header to the same solid look it would
+// normally only reach after scrolling — reusing every ".scrolled" rule in
+// styles.css rather than describing the solid look a second time.
+const headerAlwaysSolid = body.classList.contains("solid-header");
+
 
 // ===== Hamburger =====
 
@@ -81,7 +94,7 @@ function closeNav() {
 }
 
 function updateScrolled() {
-    if (window.scrollY > 40) {
+    if (headerAlwaysSolid || window.scrollY > 40) {
         header.classList.add("scrolled");
     } else {
         header.classList.remove("scrolled");

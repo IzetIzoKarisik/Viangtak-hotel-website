@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ลอยกระทงสาย — สายน้ำแห่งแสงไฟนับพัน | โรงแรมเวียงตากริเวอร์ไซด์</title>
+    <title>เทศกาลว่าวแฟนซีนานาชาติ และลอยกระทงสาย จังหวัดตาก | โรงแรมเวียงตากริเวอร์ไซด์</title>
     <meta name="description"
-        content="เรื่องราวเบื้องหลังประเพณีลอยกระทงสายจังหวัดตาก สายน้ำที่เต็มไปด้วยกระทงกะลามะพร้าวนับพันดวง ประเพณีหนึ่งเดียวในประเทศไทย จากโรงแรมเวียงตากริเวอร์ไซด์" />
+        content="เทศกาลว่าวแฟนซีนานาชาติ และมหกรรมอาหารและสินค้า จังหวัดตาก 29 ก.ย. – 7 ต.ค. 2569 และประเพณีลอยกระทงสายในเดือนพฤศจิกายน จัดริมแม่น้ำปิงหน้าโรงแรมเวียงตากริเวอร์ไซด์ พร้อมผังงาน ทางเข้า และข้อมูลที่ใช้ได้จริง" />
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="The Viang Tak Riverside Hotel">
-    <meta property="og:title" content="ลอยกระทงสาย — สายน้ำแห่งแสงไฟนับพัน">
+    <meta property="og:title" content="เทศกาลริมแม่น้ำปิง — ว่าวแฟนซีนานาชาติ และลอยกระทงสาย">
     <meta property="og:description"
-        content="เรื่องราวเบื้องหลังประเพณีลอยกระทงสายจังหวัดตาก สายน้ำที่เต็มไปด้วยกระทงกะลามะพร้าวนับพันดวง ประเพณีหนึ่งเดียวในประเทศไทย">
+        content="เทศกาลว่าวแฟนซีนานาชาติปลายเดือนกันยายน และกระทงสายนับพันดวงในเดือนพฤศจิกายน จัดริมแม่น้ำปิงหน้าโรงแรม">
     <meta property="og:url" content="https://viangtakriverside.com/loykrathong-th.html">
     <meta property="og:image" content="https://viangtakriverside.com/assets/images/loykrathong/loykrathong3.webp">
     <meta property="og:image:alt" content="กระทงสายจากกะลามะพร้าวหลายร้อยดวงล่องลอยกลางแม่น้ำปิงยามค่ำคืน">
@@ -30,10 +30,11 @@
     <link rel="alternate" hreflang="th" href="https://viangtakriverside.com/loykrathong-th.html">
     <link rel="alternate" hreflang="x-default" href="https://viangtakriverside.com/loykrathong.html">
 
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
     <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
-    <script src="main.js?v=2" defer></script>
-    <script src="gallery.js?v=2" defer></script>
+    <script src="main.js?v=3" defer></script>
+    <script src="gallery.js?v=3" defer></script>
+    <script src="kite-countdown.js?v=1" defer></script>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,11 +44,14 @@
         rel="stylesheet">
 </head>
 
-<body id="thai-version">
+<!-- "solid-header" keeps the header bar opaque from the very top of
+     this page instead of letting it start out transparent — see the
+     note on updateScrolled() in main.js. -->
+<body id="thai-version" class="solid-header">
 
     <a class="skip-link" href="#main" id="top">ข้ามไปยังเนื้อหาหลัก</a>
 
-    <header class="hotel-header">
+    <header class="hotel-header scrolled">
         <a href="index-th.html" class="logo">
             <span class="brand-name">The Viang Tak</span>
             <span class="sub-brand-name">Riverside Hotel</span>
@@ -80,9 +84,254 @@
 
     <main id="main">
 
+        <!-- ===== PAGE SIGNPOST ===== -->
+        <!-- This page covers two different festivals now, so it opens with
+             a short band saying so and offering a jump link down to each
+             one, rather than dropping straight into the first of them. The
+             page's one and only <h1> lives here — the Loi Krathong hero
+             further down used to hold it, and is an <h2> now. -->
+
+        <section class="festival-index">
+            <div class="container">
+                <h1>เทศกาลริมแม่น้ำปิง</h1>
+                <p class="festival-index-intro">โรงแรมตั้งอยู่กลางพื้นที่จัดงานเทศกาลของเมืองตาก</p>
+
+                <ul class="festival-links">
+                    <!-- ONCE A YEAR: "is-current" marks whichever festival
+                         is the next one coming up, and belongs on the kite
+                         link from roughly November through to the following
+                         October, then on the Loi Krathong link for the few
+                         weeks in between. It is only a highlight — both
+                         links work either way. -->
+                    <li><a class="festival-chip is-current" href="#kite">ว่าวนานาชาติ &middot; 29 ก.ย. – 7 ต.ค.</a></li>
+                    <li><a class="festival-chip" href="#loykrathong">ลอยกระทงสาย &middot; พ.ย.</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ===== BLOCK A: THE KITE FESTIVAL ===== -->
+        <!-- ONCE A YEAR, right after the kite festival ends: move this
+             whole <section> down below the Loi Krathong block (the one
+             that starts at "BLOCK B" further down this file), so the page
+             leads with whichever festival is actually next. Move it back
+             above once Loi Krathong is over. Nothing inside either block
+             needs touching to do it — only the two dates on the countdown
+             badge just below, and the year in the heading. -->
+
+        <section class="kite-section" id="kite">
+            <div class="container">
+
+                <!-- The badge's wording is rewritten by kite-countdown.js
+                     on every page load, using the two dates below: a
+                     countdown beforehand, "on now" during the festival
+                     week, and a closed sign afterwards. The text typed in
+                     between the tags is what a visitor with JavaScript
+                     switched off sees, so it is deliberately vague rather
+                     than a number that could go stale. -->
+                <p class="kite-countdown" data-starts="2026-09-29" data-ends="2026-10-07"
+                    data-upcoming="อีก {days} วัน" data-tomorrow="พรุ่งนี้" data-during="กำลังจัดงาน"
+                    data-ended="ปีนี้จบแล้ว">ปลายเดือนกันยายนนี้</p>
+
+                <h2>เทศกาลว่าวแฟนซีนานาชาติ 2569</h2>
+                <p class="kite-meta">29 ก.ย. – 7 ต.ค. 2569 &middot; ริมแม่น้ำปิง เทศบาลเมืองตาก</p>
+
+                <!-- The only part of this section that is about the hotel
+                     rather than about the festival, so it goes first and
+                     gets the dark card, instead of being left as a
+                     footnote after everything else. -->
+                <div class="kite-why">
+                    <h3>ทำไมต้องพักที่นี่</h3>
+
+                    <ul class="kite-why-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-person-standing">
+                                <circle cx="12" cy="5" r="1" />
+                                <path d="m9 20 3-6 3 6" />
+                                <path d="m6 8 6 2 6-2" />
+                                <path d="M12 10v4" />
+                            </svg>
+                            <p>เดินจากล็อบบี้ถึงงาน 1 นาที</p>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-car">
+                                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+                                <circle cx="7" cy="17" r="2" />
+                                <path d="M9 17h6" />
+                                <circle cx="17" cy="17" r="2" />
+                            </svg>
+                            <p>มีที่จอดรถ ไม่ต้องแย่งที่นอกงาน</p>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-eye">
+                                <path d="M2.06 12.35a1 1 0 0 1 0-.7 10.75 10.75 0 0 1 19.88 0 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-19.88 0" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            <p>ดูโชว์ว่าวกลางน้ำจากฝั่งหน้าโรงแรม</p>
+                        </li>
+                    </ul>
+
+                    <a class="kite-book-btn" href="reservation-th.html">จองห้องพักช่วงเทศกาล<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg></a>
+                </div>
+
+                <h3 class="kite-subhead">ในงานมีอะไร</h3>
+
+                <ul class="kite-zones">
+                    <li>
+                        <h4>Zone 1</h4>
+                        <p>อาหารและสินค้า &middot; ตลาดวินเทจ &middot; สวนสนุก &middot; เวทีหลัก</p>
+                    </li>
+                    <li>
+                        <h4>Zone 2</h4>
+                        <p>ว่าวแฟนซีนานาชาติ &middot; โชว์ว่าวกลางน้ำบนโป๊ะกระทงสาย</p>
+                    </li>
+                </ul>
+
+                <h3 class="kite-subhead">ข้อมูลที่ใช้ได้จริง</h3>
+
+                <ul class="kite-facts">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-log-in">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                            <path d="m10 17 5-5-5-5" />
+                            <path d="M15 12H3" />
+                        </svg>
+                        ทางเข้า 1–3
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-square-parking">
+                            <rect width="18" height="18" x="3" y="3" rx="2" />
+                            <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
+                        </svg>
+                        ลานจอดรถ
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-cross">
+                            <path d="M11 2a2 2 0 0 0-2 2v5H4a2 2 0 0 0-2 2v2c0 1.1.9 2 2 2h5v5c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2v-5h5a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-5V4a2 2 0 0 0-2-2h-2z" />
+                        </svg>
+                        ห้องน้ำ &middot; ปฐมพยาบาล
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-traffic-cone">
+                            <path d="M9.3 6.2a4.55 4.55 0 0 0 5.4 0" />
+                            <path d="M7.9 10.7c.9.8 2.4 1.3 4.1 1.3s3.2-.5 4.1-1.3" />
+                            <path d="M13.9 3.5a1.93 1.93 0 0 0-3.8-.1l-3 10c-.1.2-.1.4-.1.6 0 1.7 2.7 3 6 3s6-1.3 6-3c0-.2 0-.4-.1-.5Z" />
+                            <path d="m7.5 12.2-4.7 2.7c-.5.3-.8.7-.8 1.1s.3.8.8 1.1l7.6 4.5c.9.5 2.1.5 3 0l7.6-4.5c.5-.3.8-.7.8-1.1s-.3-.8-.8-1.1l-4.7-2.8" />
+                        </svg>
+                        ถนนคนเดินปิดจราจร
+                    </li>
+                </ul>
+
+                <h3 class="kite-subhead">ผังงาน</h3>
+
+                <!-- These three buttons open in the same lightbox as the
+                     photo gallery further down the page: "gallery-tile" is
+                     the class gallery.js looks for, and "kite-map-btn" is
+                     what makes them look like labelled buttons instead of
+                     photo thumbnails.
+
+                     "data-gallery" is what keeps the two sets apart, so the
+                     lightbox's arrows and its "2 / 3" counter stay inside
+                     the maps and never wander off into the krathong photos.
+
+                     Unusually for a gallery tile, the picture is named on
+                     the button itself rather than sitting inside it as an
+                     <img>. Partly because these buttons show a label, not a
+                     thumbnail — but mostly because each map file is around
+                     half a megabyte (they are full of small print that has
+                     to survive being zoomed into), and this way none of
+                     that is downloaded unless somebody opens one. -->
+                <div class="kite-maps" data-gallery="kite-maps">
+
+                    <button type="button" class="gallery-tile kite-map-btn"
+                        data-photo="./assets/images/kite/site-plan-overview.webp"
+                        data-photo-alt="ผังรวมเทศกาลว่าวแฟนซีนานาชาติ แสดงโซน 1 และโซน 2 ริมแม่น้ำปิง พร้อมทางเข้า จุดตรวจทั้ง 5 จุด สวนสนุก และเวทีหลัก"
+                        data-photo-caption="ผังรวม — เทศกาลว่าวแฟนซีนานาชาติ 2569">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-map">
+                            <path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.56 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.56-2.27a2 2 0 0 1 1.79 0z" />
+                            <path d="M15 5.76v15" />
+                            <path d="M9 3.24v15" />
+                        </svg>
+                        ผังรวม
+                    </button>
+
+                    <button type="button" class="gallery-tile kite-map-btn"
+                        data-photo="./assets/images/kite/site-plan-zone-1.webp"
+                        data-photo-alt="ผังโซน 1 มหกรรมอาหารและสินค้า แสดงลานจอดรถ ตลาดวินเทจ สวนสนุก เวทีหลัก จุดตรวจ 1 ถึง 5 และตำแหน่งโรงแรมเวียงตาก"
+                        data-photo-caption="Zone 1 — มหกรรมอาหารและสินค้า">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-map">
+                            <path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.56 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.56-2.27a2 2 0 0 1 1.79 0z" />
+                            <path d="M15 5.76v15" />
+                            <path d="M9 3.24v15" />
+                        </svg>
+                        ผัง Zone 1
+                    </button>
+
+                    <button type="button" class="gallery-tile kite-map-btn"
+                        data-photo="./assets/images/kite/site-plan-zone-2.webp"
+                        data-photo-alt="ผังโซน 2 พื้นที่กิจกรรมว่าวแฟนซีนานาชาติ แสดงพื้นที่ผู้ชมริมตลิ่ง จุดเตรียมว่าว โป๊ะกระทงสายกลางน้ำ และทางเข้า 1 ถึง 3"
+                        data-photo-caption="Zone 2 — พื้นที่กิจกรรมว่าวแฟนซีนานาชาติ">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true" focusable="false"
+                                class="lucide lucide-map">
+                            <path d="M14.1 5.55a2 2 0 0 0 1.79 0l3.66-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.56 2.27a2 2 0 0 1-1.79 0l-4.21-2.1a2 2 0 0 0-1.79 0l-3.66 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9l4.56-2.27a2 2 0 0 1 1.79 0z" />
+                            <path d="M15 5.76v15" />
+                            <path d="M9 3.24v15" />
+                        </svg>
+                        ผัง Zone 2
+                    </button>
+
+                </div>
+
+                <p class="kite-credit">แตะที่ผังเพื่อดูแบบเต็มจอ &middot; ภาพผังจากเทศบาลเมืองตาก</p>
+
+            </div>
+        </section>
+
+
         <!-- ===== HERO ===== -->
 
-        <section class="hero-section">
+        <!-- ===== BLOCK B: LOI KRATHONG SAI =====
+             Everything from here down to the closing "stay" section is
+             the original Loi Krathong story page, unchanged. See the
+             note on block A above about swapping the two around once a
+             year. -->
+
+        <section class="hero-section" id="loykrathong">
             <img class="hero-img" fetchpriority="high"
                 src="./assets/images/loykrathong/loykrathong3.webp"
                 srcset="./assets/images/loykrathong/loykrathong3-sm.webp 900w,
@@ -96,7 +345,7 @@
                      line break never lands in the middle of that word —
                      see ".nowrap-th" in styles.css for why Thai text needs
                      this and English doesn't. -->
-                <h1>สายน้ำแห่งแสงไฟ<span class="nowrap-th">นับพัน</span></h1>
+                <h2 class="hero-title">สายน้ำแห่งแสงไฟ<span class="nowrap-th">นับพัน</span></h2>
                 <p class="hero-paragraph">ทุกเดือนพฤศจิกายน สายน้ำปิงหน้าโรงแรมของเราจะเปล่งประกายไปด้วยแสงเทียนนับพันดวง
                     งานประเพณีหนึ่งเดียวในประเทศไทยที่หาชมไม่ได้จากที่ไหนอีก นี่คือเรื่องราวเบื้องหลังจุดเริ่มต้นของประเพณีนี้
                 </p>
@@ -244,7 +493,7 @@
                     <p class="gallery-intro">ภาพขบวนแห่, งานฝีมือ และแสงไฟนับพันดวงที่ล่องผ่านหน้าระเบียงโรงแรมของเราทุกเดือนพฤศจิกายน</p>
                 </div>
 
-                <div class="gallery-grid festival-gallery">
+                <div class="gallery-grid festival-gallery" data-gallery="festival">
 
                     <button type="button" class="gallery-tile" data-span="opener">
                         <figure>
