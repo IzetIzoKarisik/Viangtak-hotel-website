@@ -7,7 +7,7 @@
     <title>จองห้องพัก — โรงแรมเวียงตาก ริเวอร์ไซด์</title>
     <meta name="description"
         content="ส่งคำขอจองห้องพักโรงแรมเวียงตาก ริเวอร์ไซด์ จ.ตาก ยังไม่ต้องชำระเงิน ทางโรงแรมจะเช็กห้องว่างแล้วติดต่อกลับไปยืนยัน">
-    <link rel="icon" href="assets/favicon.jpeg" type="image/่jpeg">
+    <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,8 @@
         }
     </style>
 
-    <script src="reservation.js?v=2" defer></script>
+    <script src="reservation.js" defer></script>
+
 </head>
 
 <body id="reserve-page" class="th">
@@ -82,10 +83,7 @@
 
                 <input type="hidden" name="form-name" value="reservation-th">
 
-                <!-- Netlify uses this field as the subject line of the notification
-                     email it sends. reservation.js fills in the real value (room,
-                     guest name, dates) right before the form submits, so every
-                     email gets its own subject instead of this placeholder. -->
+                <!-- Netlify uses this field as the subject line of the notification email it sends. -->
                 <input type="hidden" name="subject" id="subject" value="New reservation request">
 
                 <p class="hidden">
@@ -124,6 +122,22 @@
                         </label>
                     </li>
                 </ul>
+                <!-- ===== ROOMS ===== -->
+                <div class="guests-select-sec">
+                    <div class="guests-select-text">
+                        <p>จำนวนห้อง</p>
+                        <p class="room-max">โปรดเลือกจำนวนห้อง</p>
+                    </div>
+
+                    <div class="plus-minus-el">
+                        <button type="button" id="rooms-minus" aria-label="Fewer rooms">&minus;</button>
+                        <span id="rooms-display" aria-live="polite">1</span>
+                        <button type="button" id="rooms-plus" aria-label="More rooms">+</button>
+                    </div>
+
+                    <input type="hidden" name="rooms" id="rooms-field" value="1">
+                </div>
+
 
                 <!-- ===== ผู้เข้าพัก ===== -->
                 <div class="guests-select-sec">
@@ -197,7 +211,6 @@
 
         </div>
     </main>
-    <script src="fade-up.js"></script>
 </body>
 
 </html>

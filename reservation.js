@@ -1,5 +1,6 @@
 // ===== Get the elements we need =====
 
+// GUESTS
 const guestsDisplay = document.getElementById("guests-display");
 const guestsField = document.getElementById("guests-field");
 const minusBtn = document.getElementById("guests-minus");
@@ -9,8 +10,52 @@ const roomRadios = document.querySelectorAll('input[name="room"]');
 const checkin = document.getElementById("checkin");
 const checkout = document.getElementById("checkout");
 
+// ROOMS
+const roomsDisplay = document.getElementById("rooms-display");
+const roomsField = document.getElementById("rooms-field");
+const roomsMinus = document.getElementById("rooms-minus");
+const roomsPlus = document.getElementById("rooms-plus");
+
+
+
 let guests = 2;
 
+const MAX_ROOMS = 5;
+let rooms = 1;
+
+function showRooms() {
+    const max = getMax();
+    if (max === 4) {
+        if (rooms > 3) {
+            rooms = 3;
+        }
+    }
+    if (rooms < 1) {
+        rooms = 1;
+    }
+
+    if (rooms > MAX_ROOMS) {
+        rooms = MAX_ROOMS;
+    }
+
+    roomsDisplay.textContent = rooms;
+    roomsField.value = rooms;
+
+    roomsMinus.disabled = rooms === 1;
+    roomsPlus.disabled = rooms === MAX_ROOMS;
+}
+
+roomsMinus.addEventListener("click", function () {
+    rooms = rooms - 1;
+    showRooms();
+});
+
+roomsPlus.addEventListener("click", function () {
+    rooms = rooms + 1;
+    showRooms();
+});
+
+showRooms();
 
 // ===== Preselect the room from the URL =====
 // reservation.html?room=corner-suite  ->  "corner-suite"
@@ -49,6 +94,11 @@ function showGuests() {
     if (guests < 1) {
         guests = 1;
     }
+    if (max === 4) {
+        if (guests < 2) {
+            guests = 2;
+        }
+    }
 
     guestsDisplay.textContent = guests;
     guestsField.value = guests;
@@ -56,6 +106,8 @@ function showGuests() {
 
     minusBtn.disabled = guests === 1;
     plusBtn.disabled = guests === max;
+
+    showRooms();
 }
 
 minusBtn.addEventListener("click", function () {
@@ -112,30 +164,5 @@ form.addEventListener("submit", function () {
     });
 });
 
-// ===== Give every reservation email a different subject line =====
-// Netlify sends an email every time this form is submitted. If the subject
-// line were exactly the same every time (like the placeholder text sitting
-// in the hidden "subject" field in the HTML right now), Gmail would group
-// every request into one long conversation, and a new request could get
-// buried in there instead of showing up as its own message. Filling in the
-// hidden field right before the form submits gives each email its own
-// subject line, built from details of that one request, so Gmail keeps
-// them separate.
-
-const subjectField = document.getElementById("subject");
-
-form.addEventListener("submit", function () {
-    const chosenRoomRadio = document.querySelector('input[name="room"]:checked');
-    const roomName = chosenRoomRadio.value;
-    const guestName = document.getElementById("name").value;
-    const checkinDate = checkin.value;
-    const submittedAt = new Date().toLocaleString();
-
-    subjectField.value = "New reservation request - " + roomName + " - " + guestName +
-        " (check-in " + checkinDate + ") - sent " + submittedAt;
-});
-
-
-// ===== Run once when the page loads =====
 
 showGuests();
