@@ -1,0 +1,30 @@
+# Netlify redirects. This file has to sit in the root of the publish
+# directory, which for this site is the repo root, since there is no
+# build step.
+#
+# ---- .html -> the canonical extension-less URL ----------------------
+#
+# Every page below carries a rel=canonical and hreflang pointing at the
+# extension-less form of its own URL. These rules make the .html path
+# agree with those tags instead of quietly serving a second copy of the
+# same page at a second address.
+#
+# The "!" is required rather than decorative. A plain 301 is ignored
+# whenever a real file sits at the requested path, and every one of
+# these .html files does exist in the publish directory, so without the
+# force flag Netlify would serve the file and the rule would never fire.
+#
+# thanks.html and thanks-th.html are deliberately absent. Both
+# reservation forms POST to those exact paths (the action attribute on
+# the form in reservation.html and reservation-th.html). A forced
+# redirect there risks catching the POST before Netlify's form handler
+# sees it, which turns the submission into a GET and loses the booking.
+# Those two pages are noindex, so there is nothing to gain by
+# redirecting them.
+
+/index.html             /                  301!
+/index-th.html          /index-th          301!
+/loykrathong.html       /loykrathong       301!
+/loykrathong-th.html    /loykrathong-th    301!
+/reservation.html       /reservation       301!
+/reservation-th.html    /reservation-th    301!
