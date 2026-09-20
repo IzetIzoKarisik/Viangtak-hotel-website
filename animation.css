@@ -1,0 +1,62 @@
+:root {
+  --fade-distance: 24px;
+  --fade-duration: 1s;
+  --fade-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --fade-stagger: 0.05s;
+}
+
+/* hidden state — scoped to .js so a broken script can never blank the page */
+.js .fade-up {
+  opacity: 0;
+  transform: translateY(var(--fade-distance));
+}
+
+/* the transition itself — always defined */
+.fade-up {
+  transition:
+    opacity   var(--fade-duration) var(--fade-easing),
+    transform var(--fade-duration) var(--fade-easing);
+  transition-delay: var(--fade-delay, 0s);
+  will-change: opacity, transform;
+}
+
+/* revealed state — the script adds .is-visible */
+.js .fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* stagger: helper classes */
+.fade-up--d1 { --fade-delay: calc(var(--fade-stagger) * 1); }
+.fade-up--d2 { --fade-delay: calc(var(--fade-stagger) * 2); }
+.fade-up--d3 { --fade-delay: calc(var(--fade-stagger) * 3); }
+.fade-up--d4 { --fade-delay: calc(var(--fade-stagger) * 4); }
+.fade-up--d5 { --fade-delay: calc(var(--fade-stagger) * 5); }
+.fade-up--d6 { --fade-delay: calc(var(--fade-stagger) * 6); }
+
+/* stagger: automatic, for a grid wrapper */
+.fade-up-group > .fade-up:nth-child(1) { --fade-delay: calc(var(--fade-stagger) * 0); }
+.fade-up-group > .fade-up:nth-child(2) { --fade-delay: calc(var(--fade-stagger) * 1); }
+.fade-up-group > .fade-up:nth-child(3) { --fade-delay: calc(var(--fade-stagger) * 2); }
+.fade-up-group > .fade-up:nth-child(4) { --fade-delay: calc(var(--fade-stagger) * 3); }
+.fade-up-group > .fade-up:nth-child(5) { --fade-delay: calc(var(--fade-stagger) * 4); }
+.fade-up-group > .fade-up:nth-child(6) { --fade-delay: calc(var(--fade-stagger) * 5); }
+
+/* size variants */
+.fade-up--sm { --fade-distance: 12px; --fade-duration: 0.45s; }
+.fade-up--lg { --fade-distance: 48px; --fade-duration: 0.8s;  }
+
+
+.fade-up--still { --fade-distance: 0px; }
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .js .fade-up,
+  .js .fade-up.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0s;
+    will-change: auto;
+  }
+}

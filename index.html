@@ -30,6 +30,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Fraunces:wght@400;500;600&family=Noto+Serif+Thai:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="animation.css">
+    <script>document.documentElement.classList.add('js');</script>
 
     <script type="application/ld+json">
     {
@@ -118,7 +120,7 @@
         <section class="welcome-section">
             <div class="container">
                 <div class="sub-welcome-container">
-                    <div class="welcome-text-container">
+                    <div class="welcome-text-container fade-up">
                         <p class="welcome-kicker">welcome</p>
                         <h2>A riverside classic in the heart of Tak</h2>
                         <p>For decades, The Viang Tak Riverside has welcomed travellers to the banks of the Ping River.
@@ -148,9 +150,9 @@
                         </ul>
                     </div>
                     <div class="welcome-img-container">
-                        <img loading="lazy" class="welcome-img" src="./assets/images/hotel/exterior/exterior-night.webp"
+                        <img loading="lazy" class="welcome-img fade-up fade-up--still" src="./assets/images/hotel/exterior/exterior-night.webp"
                             alt="hotel entrance at night" />
-                        <img loading="lazy" class="welcome-float-img" src="./assets/images/hotel/lobby/lobby.webp"
+                        <img loading="lazy" class="welcome-float-img fade-up fade-up--still" src="./assets/images/hotel/lobby/lobby.webp"
                             alt="A picture of hotel lobby" />
                     </div>
                 </div>
@@ -161,15 +163,15 @@
         <section class="room-card-section" id="rooms">
             <div class="container">
 
-                <div class="room-section-text">
+                <div class="room-section-text fade-up fade-up--sm">
                     <p class="room-kicker">stay with us</p>
                     <h2>Rooms &amp; Suites</h2>
                     <p>Every room comes with air conditioning, free Wi-Fi, a minibar, kettle, hairdryer, in-room safe
                         and buffet breakfast.</p>
                 </div>
 
-                <div class="room-grid">
-                    <article class="room-card">
+                <div class="room-grid fade-up-group">
+                    <article class="room-card fade-up">
 
                         <div class="room-photo">
                             <img loading="lazy" src="./assets/images/hotel/rooms/twin-beds-elephant-view.webp"
@@ -193,7 +195,7 @@
 
                     </article>
 
-                    <article class="room-card">
+                    <article class="room-card fade-up">
                         <div class="room-photo">
                             <img loading="lazy" src="./assets/images/hotel/rooms/king-bed-corner-view.webp"
                                 alt="A corner suite room with 180 degrees wide riverview" />
@@ -216,7 +218,7 @@
 
                     </article>
 
-                    <article class="room-card">
+                    <article class="room-card fade-up">
                         <div class="room-photo">
                             <img loading="lazy" src="./assets/images/hotel/rooms/family-room.webp"
                                 alt="A family suite room with 2 bed rooms" />
@@ -245,7 +247,7 @@
         <section class="dining-section" id="dining">
             <div class="container">
 
-                <div class="dining-text">
+                <div class="dining-text fade-up">
                     <p class="kicker">The best spread in Tak</p>
                     <h2>Breakfast Buffet</h2>
                     <p class="breakfast-paragraph">Start your day with a breakfast buffet that has something for
@@ -254,12 +256,12 @@
                     <p class="breakfast-time"><span>06:00 — 9:30 daily</span> &middot; International and Thai</p>
                 </div>
 
-                <figure class="dining-hero-fig">
+                <figure class="dining-hero-fig fade-up">
                     <img loading="lazy" class="dining-hero" src="./assets/images/breakfast-image/buffet-line.webp"
                         alt="The breakfast room set for the morning buffet" />
                 </figure>
 
-                <article class="zag zag-feature">
+                <article class="zag zag-feature fade-up">
                     <div class="zag-media">
                         <img loading="lazy" src="./assets/images/breakfast-image/kaeng-mahae.webp"
                             alt="Kaeng Mahae, a seasonal curry from Tak, served in a clay pot" />
@@ -273,9 +275,9 @@
                     </div>
                 </article>
 
-                <p class="buffet-intro">Alongside it, the everyday favourites:</p>
+                <p class="buffet-intro fade-up">Alongside it, the everyday favourites:</p>
 
-                <ul class="buffet-grid">
+                <ul class="buffet-grid fade-up">
                     <li class="buffet-item">
                         <img loading="lazy" src="./assets/images/breakfast-image/american.webp"
                             alt="A plated American breakfast with eggs and pastries" />
@@ -303,11 +305,11 @@
 
         <section class="facilities-section" id="facilities">
             <div class="container">
-                <p class="facilities-kicker">
+                <p class="facilities-kicker fade-up">
                     at your service
                 </p>
-                <h2>Around the Hotel</h2>
-                <ul class="facilities-grid">
+                <h2 class="fade-up">Around the Hotel</h2>
+                <ul class="facilities-grid fade-up fade-up--still">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -453,7 +455,7 @@
                         the river fills with lanterns.</p>
                 </div>
 
-                <div class="gallery-grid" data-gallery="hotel">
+                <div class="gallery-grid fade-up fade-up--still" data-gallery="hotel">
 
                     <button type="button" class="gallery-tile" data-span="opener">
                         <figure>
@@ -557,7 +559,7 @@
 
         <section class="event-section" id="events">
             <div class="container">
-                <div class="event-text">
+                <div class="event-text fade-up">
                     <p class="event-kicker">Weddings, banquets &amp; seminars</p>
                     <h2>The Grand Ballroom</h2>
                     <p class="event-intro">
@@ -591,7 +593,7 @@
                 <div class="under-img-sec">
                     <h3 class="event-subhead">A room for every size of event</h3>
 
-                    <ul class="venue-list">
+                    <ul class="venue-list fade-up">
                         <li class="venue">
                             <h4><span lang="th">เวียงปิง</span> Viang Ping</h4>
                             <p>The grand ballroom — full wedding receptions, gala dinners and
@@ -627,7 +629,7 @@
                                                             is what lets a keyboard scroll it
                     -->
                     <div class="capacity-wrap" role="region" aria-labelledby="capacity-caption" tabindex="0">
-                        <table class="capacity-table">
+                        <table class="capacity-table fade-up fade-up--still">
                             <caption id="capacity-caption">
                                 The most guests each room holds, depending on how we set it up.
                             </caption>
@@ -729,7 +731,7 @@
 
         <section class="contact-section" id="contact">
             <div class="container">
-                <div class="contact-grid">
+                <div class="contact-grid fade-up">
                     <div class="contact-detail">
                         <p class="contact-kicker">Find us</p>
                         <h2>Contact &amp; Location</h2>
@@ -915,6 +917,7 @@
     </dialog>
 
 
+    <script src="fade-up.js"></script>
 </body>
 
 </html>

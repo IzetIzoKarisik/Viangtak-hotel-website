@@ -44,6 +44,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Fraunces:wght@400;500;600&family=Noto+Serif+Thai:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="animation.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <!-- "solid-header" keeps the header bar opaque from the very top of
@@ -135,14 +137,14 @@
                     data-upcoming="In {days} days" data-tomorrow="Tomorrow" data-during="On now"
                     data-ended="Finished for this year">Coming at the end of September</p>
 
-                <h2>Tak International Fancy Kite Festival 2026</h2>
+                <h2 class="fade-up">Tak International Fancy Kite Festival 2026</h2>
                 <p class="kite-meta">29 September – 7 October 2026 &middot; The Ping riverfront, Tak Municipality</p>
 
                 <!-- The only part of this section that is about the hotel
                      rather than about the festival, so it goes first and
                      gets the dark card, instead of being left as a
                      footnote after everything else. -->
-                <div class="kite-why">
+                <div class="kite-why fade-up">
                     <h3>Why stay here</h3>
 
                     <ul class="kite-why-list">
@@ -191,9 +193,9 @@
                     </svg></a>
                 </div>
 
-                <h3 class="kite-subhead">What's on</h3>
+                <h3 class="kite-subhead fade-up">What's on</h3>
 
-                <ul class="kite-zones">
+                <ul class="kite-zones fade-up">
                     <li>
                         <h4>Zone 1</h4>
                         <p>Food and market stalls &middot; the vintage market &middot; the funfair &middot; the main stage</p>
@@ -204,9 +206,9 @@
                     </li>
                 </ul>
 
-                <h3 class="kite-subhead">Practical details</h3>
+                <h3 class="kite-subhead fade-up">Practical details</h3>
 
-                <ul class="kite-facts">
+                <ul class="kite-facts fade-up">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -251,7 +253,7 @@
                     </li>
                 </ul>
 
-                <h3 class="kite-subhead">Site maps</h3>
+                <h3 class="kite-subhead fade-up">Site maps</h3>
 
                 <!-- These three buttons open in the same lightbox as the
                      photo gallery further down the page: "gallery-tile" is
@@ -270,7 +272,7 @@
                      half a megabyte (they are full of small print that has
                      to survive being zoomed into), and this way none of
                      that is downloaded unless somebody opens one. -->
-                <div class="kite-maps" data-gallery="kite-maps">
+                <div class="kite-maps fade-up fade-up--still" data-gallery="kite-maps">
 
                     <button type="button" class="gallery-tile kite-map-btn"
                         data-photo="./assets/images/kite/site-plan-overview.webp"
@@ -371,7 +373,7 @@
         <section class="legend-section" id="legend">
             <div class="container">
                 <div class="story-row">
-                    <div class="story-media">
+                    <div class="story-media fade-up fade-up--still">
                         <img loading="lazy"
                             src="./assets/images/loykrathong/tak_loy-krathong-sai-prathip-festival_18.webp"
                             srcset="./assets/images/loykrathong/tak_loy-krathong-sai-prathip-festival_18-sm.webp 900w,
@@ -379,7 +381,7 @@
                             sizes="(min-width: 768px) 45vw, 100vw"
                             alt="Dozens of coconut-shell candles, each filled with wax and a twisted cotton wick, laid out in rows">
                     </div>
-                    <div class="story-body">
+                    <div class="story-body fade-up">
                         <p class="story-kicker">The legend</p>
                         <h2>A Debt Owed to the River</h2>
                         <p>Generations before anyone in Tak had a name for it, families gathered on the riverbank at
@@ -402,7 +404,7 @@
         <section class="craft-section">
             <div class="container">
                 <div class="story-row reverse">
-                    <div class="story-media">
+                    <div class="story-media fade-up fade-up--still">
                         <img loading="lazy"
                             src="./assets/images/loykrathong/loykrathong18.webp"
                             srcset="./assets/images/loykrathong/loykrathong18-sm.webp 900w,
@@ -410,7 +412,7 @@
                             sizes="(min-width: 768px) 45vw, 100vw"
                             alt="Whole coconuts, empty shells, and finished krathong sai laid out together on a craft table, showing every stage from raw material to finished offering">
                     </div>
-                    <div class="story-body">
+                    <div class="story-body fade-up">
                         <p class="story-kicker">How it's made</p>
                         <h2>From Kitchen Scrap to Sacred Light</h2>
                         <p>The lily leaves grew harder to find. What Tak never ran short of was coconut shells —
@@ -434,13 +436,13 @@
         <section class="today-section">
             <div class="container">
                 <p class="story-kicker">The festival today</p>
-                <h2>The Night the River Catches Fire</h2>
+                <h2 class="fade-up">The Night the River Catches Fire</h2>
                 <p class="today-intro">The tradition that once fit in a few village hands now fills the whole
                     riverbank. Every year, eight separate krathong sai processions — each one hundreds of shells
                     long — are lit and released together, until close to a thousand small flames are drifting down
                     the Ping at once.</p>
 
-                <ul class="fact-grid">
+                <ul class="fact-grid fade-up">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -511,14 +513,14 @@
         <section class="gallery-section" id="gallery">
             <div class="container">
 
-                <div class="gallery-text">
+                <div class="gallery-text fade-up">
                     <p class="gallery-kicker">In pictures</p>
                     <h2>The River, in Light</h2>
                     <p class="gallery-intro">The procession, the craft, and the thousand small fires that drift
                         past our terrace every November.</p>
                 </div>
 
-                <div class="gallery-grid festival-gallery" data-gallery="festival">
+                <div class="gallery-grid festival-gallery fade-up fade-up--still" data-gallery="festival">
 
                     <button type="button" class="gallery-tile" data-span="opener">
                         <figure>
@@ -829,6 +831,7 @@
     </dialog>
 
 
+    <script src="fade-up.js"></script>
 </body>
 
 </html>
