@@ -19,8 +19,18 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- This page and index.html are the same page in two languages.
+         "canonical" says this exact URL is the one to index (not a
+         duplicate), and the two "alternate hreflang" tags say where to
+         find the other language, so someone searching in English gets
+         offered the English page instead of this one. -->
+    <link rel="canonical" href="https://viangtakriverside.com/index-th">
+    <link rel="alternate" hreflang="en" href="https://viangtakriverside.com/">
+    <link rel="alternate" hreflang="th" href="https://viangtakriverside.com/index-th">
+    <link rel="alternate" hreflang="x-default" href="https://viangtakriverside.com/">
+
     <link rel="stylesheet" href="styles.css?v=3" />
-    <link rel="icon" href="assets/favicon.jpeg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
     <script src="main.js?v=3" defer></script>
     <script src="gallery.js?v=3" defer></script>
 
@@ -41,7 +51,7 @@
       "description": "Riverside hotel in the heart of Tak, on the Ping River.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "236 Chomphon Road",
+        "streetAddress": "236 Jompol Road",
         "addressLocality": "Muang District",
         "addressRegion": "Tak",
         "postalCode": "63000",
@@ -158,7 +168,7 @@
                 <div class="room-section-text fade-up fade-up--sm">
                     <p class="room-kicker">stay with us</p>
                     <h2>ห้องพักริมน้ำและห้องสวีท</h2>
-                    <p>ทุกห้องมีเครื่องปรับอากาศ Wi-Fi ฟรี มินิบาร์ และตู้นิรภัย พร้อมบุฟเฟต์อาหารเช้าทุกเช้า</p>
+                    <p>ทุกห้องมีเครื่องปรับอากาศ Wi-Fi ฟรี มินิบาร์ กาต้มน้ำ ไดร์เป่าผม ตู้นิรภัย และอาหารเช้าบุฟเฟ่ต์</p>
                 </div>
 
                 <div class="room-grid fade-up-group">
@@ -331,13 +341,10 @@
                             <path fill="currentColor"
                                 d="M468.479 361.5c-9.072-4.233-20.361-9.5-41.054-9.5s-31.983 5.268-41.053 9.5c-7.782 3.631-13.928 6.5-27.523 6.5s-19.739-2.868-27.52-6.5c-9.071-4.232-20.359-9.5-41.052-9.5s-31.981 5.269-41.051 9.5c-7.781 3.631-13.926 6.5-27.519 6.5s-19.737-2.868-27.517-6.5c-9.07-4.232-20.358-9.5-41.05-9.5s-31.981 5.269-41.051 9.5c-7.781 3.631-13.926 6.5-27.519 6.5s-19.738-2.868-27.519-6.5C47.981 357.269 36.692 352 16 352v32c13.593 0 19.738 2.868 27.519 6.5c9.07 4.232 20.359 9.5 41.051 9.5s31.981-5.269 41.051-9.5c7.781-3.631 13.926-6.5 27.519-6.5s19.737 2.868 27.517 6.5c9.07 4.232 20.358 9.5 41.05 9.5s31.981-5.269 41.051-9.5c7.781-3.631 13.927-6.5 27.519-6.5s19.739 2.868 27.52 6.5c9.071 4.232 20.359 9.5 41.052 9.5s31.983-5.268 41.054-9.5c7.781-3.631 13.928-6.5 27.522-6.5s19.741 2.868 27.521 6.5c9.072 4.233 20.361 9.5 41.054 9.5v-32c-13.594 0-19.741-2.868-27.521-6.5M427.425 448c-20.693 0-31.983 5.268-41.053 9.5c-7.782 3.631-13.928 6.5-27.523 6.5s-19.739-2.868-27.52-6.5c-9.071-4.232-20.359-9.5-41.052-9.5s-31.981 5.269-41.051 9.5c-7.781 3.631-13.926 6.5-27.519 6.5s-19.737-2.868-27.517-6.5c-9.07-4.232-20.358-9.5-41.05-9.5s-31.981 5.269-41.051 9.5c-7.781 3.631-13.926 6.5-27.519 6.5s-19.738-2.868-27.519-6.5C47.981 453.269 36.692 448 16 448v32c13.593 0 19.738 2.868 27.519 6.5c9.07 4.232 20.359 9.5 41.051 9.5s31.981-5.269 41.051-9.5c7.781-3.631 13.926-6.5 27.519-6.5s19.737 2.868 27.517 6.5c9.07 4.232 20.358 9.5 41.05 9.5s31.981-5.269 41.051-9.5c7.781-3.631 13.927-6.5 27.519-6.5s19.739 2.868 27.52 6.5c9.071 4.232 20.359 9.5 41.052 9.5s31.983-5.268 41.054-9.5c7.781-3.631 13.928-6.5 27.522-6.5s19.741 2.868 27.521 6.5c9.072 4.233 20.361 9.5 41.054 9.5v-32c-13.594 0-19.741-2.868-27.521-6.5c-9.072-4.232-20.361-9.5-41.054-9.5M248 272h144v56h32V115.878a47.8 47.8 0 0 1 8.446-27.193L482.417 16h-38.834l-37.507 54.556A79.67 79.67 0 0 0 392 115.878V160H248v-44.122a47.8 47.8 0 0 1 8.446-27.193L306.417 16h-38.834l-37.507 54.556A79.67 79.67 0 0 0 216 115.878V328h32Zm0-80h144v48H248Z" />
                         </svg>
-
-                        </svg>
                         <h3>สระว่ายน้ำกลางแจ้ง</h3>
                         <p>
                             สระกลางแจ้งบนชั้นเทอเรซ ชมวิวแม่น้ำปิงและสะพานแขวน
                         </p>
-                    </li>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -425,6 +432,7 @@
                         <p>
                             Wi-Fi ทั่วทั้งโรงแรม ที่จอดรถฟรี และมีเจ้าหน้าที่รักษาความปลอดภัยดูแลตลอด
                         </p>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -508,7 +516,7 @@
                     <button type="button" class="gallery-tile">
                         <figure>
                             <img loading="lazy" src="./assets/images/gallery/gallery-hotel-entrance.webp"
-                                alt="The hotel entrance on Chomphon Road, with cars parked outside">
+                                alt="The hotel entrance on Jompol Road, with cars parked outside">
                             <figcaption>ติดถนนจอมพล มีที่จอดรถหน้าโรงแรม</figcaption>
                         </figure>
                     </button>
@@ -516,8 +524,8 @@
                     <button type="button" class="gallery-tile">
                         <figure>
                             <img loading="lazy" src="./assets/images/gallery/gallery-marina-club.webp"
-                                alt="Marina Club, a nightclub near the hotel, lit up and full of dancing guests">
-                            <figcaption>มารีน่า คลับ เดินไม่ไกลจากโรงแรม</figcaption>
+                                alt="Marina Club, the hotel's own nightclub, lit up and full of dancing guests">
+                            <figcaption>มารีน่า คลับ ผับของโรงแรมเรา</figcaption>
                         </figure>
                     </button>
 
@@ -790,7 +798,7 @@
                     <div class="google-map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.071601467694!2d99.12051547492187!3d16.872352217438426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ddd995613bc8f5%3A0x1c77719d6469e158!2sViang%20Tak%20Riverside%20Hotel!5e0!3m2!1sen!2sth!4v1788681970036!5m2!1sen!2sth"
-                            title="Map showing The Viang Tak Riverside Hotel, Chomphon Road, Tak" width="600"
+                            title="Map showing The Viang Tak Riverside Hotel, Jompol Road, Tak" width="600"
                             height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
                         </iframe>
                     </div>
@@ -867,7 +875,7 @@
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; 2026 The Viang Tak Riverside Hotel. All rights reserved.</p>
             <p class="footer-credit">
-                Built by <a href="https://github.com/IzetIzoKarisik" target="_blank" rel="noopener">Izzet Izo
+                Built by <a href="https://github.com/IzetIzoKarisik" target="_blank" rel="noopener">Izet Izo
                     Karisik</a>
             </p>
             <a class="footer-top" href="#top">
@@ -892,7 +900,7 @@
     <dialog class="gallery-modal" id="gallery-modal" aria-labelledby="gallery-modal-caption">
         <button class="gallery-modal-close" type="button" aria-label="Close">&times;</button>
         <button class="gallery-modal-prev" type="button" aria-label="Previous photo">&lsaquo;</button>
-        <img id="gallery-modal-img" src="" alt="">
+        <img id="gallery-modal-img" alt="">
         <button class="gallery-modal-next" type="button" aria-label="Next photo">&rsaquo;</button>
         <p class="gallery-modal-caption" id="gallery-modal-caption"></p>
     </dialog>

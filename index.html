@@ -19,6 +19,16 @@
     <meta property="og:locale:alternate" content="th_TH">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- This page and index-th.html are the same page in two languages.
+         "canonical" says this exact URL is the one to index (not a
+         duplicate), and the two "alternate hreflang" tags say where to
+         find the other language, so someone searching in Thai gets
+         offered the Thai page instead of this one. -->
+    <link rel="canonical" href="https://viangtakriverside.com/">
+    <link rel="alternate" hreflang="en" href="https://viangtakriverside.com/">
+    <link rel="alternate" hreflang="th" href="https://viangtakriverside.com/index-th">
+    <link rel="alternate" hreflang="x-default" href="https://viangtakriverside.com/">
+
     <link rel="stylesheet" href="styles.css?v=3" />
     <link rel="icon" href="assets/favicon.jpeg" type="image/jpeg">
     <script src="main.js?v=3" defer></script>
@@ -41,7 +51,7 @@
       "description": "Riverside hotel in the heart of Tak, on the Ping River.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "236 Chomphon Road",
+        "streetAddress": "236 Jompol Road",
         "addressLocality": "Muang District",
         "addressRegion": "Tak",
         "postalCode": "63000",
@@ -253,7 +263,7 @@
                     <p class="breakfast-paragraph">Start your day with a breakfast buffet that has something for
                         everyone.
                         Thai favourites and international classics, cooked fresh every morning.</p>
-                    <p class="breakfast-time"><span>06:00 — 9:30 daily</span> &middot; International and Thai</p>
+                    <p class="breakfast-time"><span>06:00 — 09:30 daily</span> &middot; International and Thai</p>
                 </div>
 
                 <figure class="dining-hero-fig fade-up">
@@ -438,7 +448,7 @@
                         </svg>
                         <h3>Free Wi-Fi &amp; Parking</h3>
                         <p>
-                            Stay connected with complimentary Wi-Fi and enjoy convenient on-site parking throughout your stay.
+                            Stay connected with complimentary Wi-Fi, enjoy convenient on-site parking, and 24-hour security staff throughout your stay.
                         </p>
                     </li>
                 </ul>
@@ -524,7 +534,7 @@
                     <button type="button" class="gallery-tile">
                         <figure>
                             <img loading="lazy" src="./assets/images/gallery/gallery-hotel-entrance.webp"
-                                alt="The hotel entrance on Chomphon Road, with cars parked outside">
+                                alt="The hotel entrance on Jompol Road, with cars parked outside">
                             <figcaption>Right on Jompol Road, parking at the door</figcaption>
                         </figure>
                     </button>
@@ -532,8 +542,8 @@
                     <button type="button" class="gallery-tile">
                         <figure>
                             <img loading="lazy" src="./assets/images/gallery/gallery-marina-club.webp"
-                                alt="Marina Club, a nightclub near the hotel, lit up and full of dancing guests">
-                            <figcaption>Marina Club, a short walk away</figcaption>
+                                alt="Marina Club, the hotel's own nightclub, lit up and full of dancing guests">
+                            <figcaption>Marina Club, our nightclub on site</figcaption>
                         </figure>
                     </button>
 
@@ -605,7 +615,7 @@
                                 training days that need space without the full ballroom.</p>
                         </li>
                         <li class="venue">
-                            <h4><span lang="th">จอมพล</span> Chomphon</h4>
+                            <h4><span lang="th">จอมพล</span> Jompol</h4>
                             <p>A meeting room for seminars, workshops and board meetings —
                                 classroom rows or a single long table.</p>
                         </li>
@@ -644,7 +654,7 @@
                                     <td class="capacity-corner"></td>
                                     <th scope="col">Viang Ping</th>
                                     <th scope="col">Viang Wang</th>
-                                    <th scope="col">Chomphon</th>
+                                    <th scope="col">Jompol</th>
                                     <th scope="col">Chiang Thong</th>
                                 </tr>
                             </thead>
@@ -739,7 +749,7 @@
                             <li>
                                 <p class="sub-contact-kicker">Address</p>
                                 <p class="sub-contact-detail">
-                                    236 Chomphon Road, Muang District,
+                                    236 Jompol Road, Muang District,
                                     Tak 63000, Thailand
                                 </p>
                             </li>
@@ -809,7 +819,7 @@
                     <div class="google-map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.071601467694!2d99.12051547492187!3d16.872352217438426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ddd995613bc8f5%3A0x1c77719d6469e158!2sViang%20Tak%20Riverside%20Hotel!5e0!3m2!1sen!2sth!4v1788681970036!5m2!1sen!2sth"
-                            title="Map showing The Viang Tak Riverside Hotel, Chomphon Road, Tak" width="600"
+                            title="Map showing The Viang Tak Riverside Hotel, Jompol Road, Tak" width="600"
                             height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
                         </iframe>
                     </div>
@@ -863,7 +873,7 @@
                 <ul>
                     <li><a href="#rooms">Rooms</a></li>
                     <li><a href="#dining">Dining</a></li>
-                    <li><a href="#facilities">facilities</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
                     <li><a href="#events">Events</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -886,7 +896,7 @@
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; 2026 The Viang Tak Riverside Hotel. All rights reserved.</p>
             <p class="footer-credit">
-                Built by <a href="https://github.com/IzetIzoKarisik" target="_blank" rel="noopener">Izzet Izo
+                Built by <a href="https://github.com/IzetIzoKarisik" target="_blank" rel="noopener">Izet Izo
                     Karisik</a>
             </p>
             <a class="footer-top" href="#top">
@@ -911,7 +921,7 @@
     <dialog class="gallery-modal" id="gallery-modal" aria-labelledby="gallery-modal-caption">
         <button class="gallery-modal-close" type="button" aria-label="Close">&times;</button>
         <button class="gallery-modal-prev" type="button" aria-label="Previous photo">&lsaquo;</button>
-        <img id="gallery-modal-img" src="" alt="">
+        <img id="gallery-modal-img" alt="">
         <button class="gallery-modal-next" type="button" aria-label="Next photo">&rsaquo;</button>
         <p class="gallery-modal-caption" id="gallery-modal-caption"></p>
     </dialog>
