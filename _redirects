@@ -22,6 +22,11 @@
 # Those two pages are noindex, so there is nothing to gain by
 # redirecting them.
 
+# Old ReadyPlanet site → new pages
+/index.php       /           301
+/contactus.html  /#contact   301
+/%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%82%E0%B9%88%E0%B8%B2%E0%B8%A7%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B8%81%E0%B8%A3%E0%B8%A3%E0%B8%A1  /  301
+
 /index.html             /                  301!
 /index-th.html          /index-th          301!
 /loykrathong.html       /loykrathong       301!
