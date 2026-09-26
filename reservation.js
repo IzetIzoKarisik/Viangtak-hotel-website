@@ -128,13 +128,63 @@ roomRadios.forEach(function (radio) {
 
 // ===== Dates =====
 
-const today = new Date().toISOString().slice(0, 10);   // "2026-09-13"
+// Turn a Date into the "YYYY-MM-DD" text that <input type="date"> uses.
+// We read the LOCAL year/month/day (the guest's own clock).
+// We do NOT use toISOString(), because that gives the date in UTC (London time).
+// Thailand is 7 hours ahead of UTC, so between midnight and 7am in Thailand
+// toISOString() would still say "yesterday".
+function toDateText(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");   // months start at 0, so +1
+    const day = String(date.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;                         // "2026-09-26"
+}
 
+// Take a "YYYY-MM-DD" text and give back the text for the NEXT day.
+// Example: "2026-09-30" -> "2026-10-01"
+function nextDayText(dateText) {
+    const parts = dateText.split("-");        // ["2026", "09", "30"]
+    const year = Number(parts[0]);
+    const month = Number(parts[1]) - 1;       // back to 0-based months for Date
+    const day = Number(parts[2]);
+
+    // Asking for "day + 1" is safe even at the end of a month:
+    // Date turns September 31 into October 1 by itself.
+    const next = new Date(year, month, day + 1);
+    return toDateText(next);
+}
+
+const today = toDateText(new Date());         // e.g. "2026-09-26"
+const tomorrow = nextDayText(today);          // e.g. "2026-09-27"
+
+// Check-in can be today at the earliest.
+// Check-out must be at least one night later, so tomorrow at the earliest.
 checkin.min = today;
-checkout.min = today;
+checkout.min = tomorrow;
 
 checkin.addEventListener("change", function () {
-    checkout.min = checkin.value;
+    // If the check-in box was cleared, go back to the default rule.
+    if (checkin.value === "") {
+        checkout.min = tomorrow;
+        return;
+    }
+
+    // Earliest check-out = the day AFTER check-in (one night minimum).
+    const earliestCheckout = nextDayText(checkin.value);
+    checkout.min = earliestCheckout;
+
+    // The guest may have picked check-out FIRST and then moved check-in later.
+    // Setting .min does not change a date that is already in the box,
+    // so if the old check-out is now too early, we clear it
+    // and the guest has to choose it again.
+    // (Comparing "YYYY-MM-DD" texts with < works, because they sort like dates.)
+    if (checkout.value !== "" && checkout.value < earliestCheckout) {
+        checkout.value = "";
+    }
+
+    // We changed the check-out box from code, which does NOT fire an "input"
+    // or "change" event, so we re-check the submit button ourselves.
+    updateSubmit();
 });
 
 // ===== Submit button stays off until the form is valid =====
